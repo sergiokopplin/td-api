@@ -33,7 +33,6 @@ describe('TodosMongoRepository', () => {
       })
       expect(result.id).toBeTruthy()
       expect(result.title).toBe(mockAddTodoParams().title)
-      expect(result.theme).toBe('blank')
       expect(result.completed).toBe(false)
       expect(result.accountId).toBe(mockAddTodoParams().accountId)
     })
@@ -43,11 +42,9 @@ describe('TodosMongoRepository', () => {
       const result = await sut.add({
         title: mockAddTodoParams().title,
         dueDate: new Date('2021-03-17T23:18:04.822Z'),
-        theme: 'custom',
         accountId: mockAddTodoParams().accountId
       })
       expect(result.id).toBeTruthy()
-      expect(result.theme).toBe('custom')
       expect(result.dueDate).toEqual(new Date('2021-03-17T23:18:04.822Z'))
     })
   })
@@ -114,7 +111,6 @@ describe('TodosMongoRepository', () => {
         completed: true,
         title: 'new title',
         dueDate: new Date('2021-03-17T23:18:04.822Z'),
-        theme: 'blank',
         accountId: mockAddTodoParams().accountId
       })
       expect(updateResult).toEqual({
@@ -122,7 +118,6 @@ describe('TodosMongoRepository', () => {
         completed: true,
         title: 'new title',
         dueDate: new Date('2021-03-17T23:18:04.822Z'),
-        theme: 'blank',
         accountId: mockAddTodoParams().accountId
       })
     })
@@ -134,7 +129,6 @@ describe('TodosMongoRepository', () => {
         completed: true,
         title: 'new title',
         dueDate: new Date('2021-03-17T23:18:04.822Z'),
-        theme: 'blank',
         accountId: mockAddTodoParams().accountId
       })
       expect(updateResult).toEqual(null)

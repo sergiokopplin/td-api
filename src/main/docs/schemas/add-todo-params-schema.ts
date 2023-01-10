@@ -4,9 +4,6 @@ export const addTodoParamsSchema = {
     title: {
       type: 'string'
     },
-    theme: {
-      type: 'string'
-    },
     dueDate: {
       type: 'string'
     }

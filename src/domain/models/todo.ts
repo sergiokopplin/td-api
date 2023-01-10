@@ -3,6 +3,5 @@ export interface Todo {
   title: string
   completed: boolean
   dueDate: Date
-  theme: string
   accountId: string
 }

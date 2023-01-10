@@ -21,7 +21,6 @@ implements
     const result = await collection.insertOne(
       RepositoryHelper.mapValidKeys(
         {
-          theme: todo.theme || 'blank',
           completed: false
         },
         todo
@@ -47,12 +46,7 @@ implements
     const collection = await MongoHelper.getCollection('todos')
     const result = await collection.findOneAndReplace(
       { _id: new ObjectId(todo.id) },
-      RepositoryHelper.mapValidKeys(
-        {
-          theme: 'blank'
-        },
-        todo
-      ),
+      todo,
       { returnOriginal: false }
     )
     return result.value && MongoHelper.mapId(result.value)

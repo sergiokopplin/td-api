@@ -12,10 +12,7 @@ export const todoSchema = {
     },
     completed: {
       type: 'boolean'
-    },
-    theme: {
-      type: 'string'
     }
   },
-  required: ['id', 'title', 'theme', 'completed']
+  required: ['id', 'title', 'completed']
 }

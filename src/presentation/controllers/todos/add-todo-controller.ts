@@ -23,7 +23,6 @@ export namespace AddTodoController {
   export interface Request {
     title: string
     dueDate?: Date
-    theme?: string
     accountId: string
   }
 }

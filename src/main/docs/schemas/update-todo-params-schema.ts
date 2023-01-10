@@ -4,9 +4,6 @@ export const updateTodoParamsSchema = {
     title: {
       type: 'string'
     },
-    theme: {
-      type: 'string'
-    },
     dueDate: {
       type: 'string'
     },
@@ -17,5 +14,5 @@ export const updateTodoParamsSchema = {
       type: 'boolean'
     }
   },
-  required: ['id', 'completed', 'title', 'theme']
+  required: ['id', 'completed', 'title']
 }

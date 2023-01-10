@@ -15,8 +15,7 @@ const mockTodo = (): Todo => ({
   accountId: faker.datatype.uuid(),
   title: faker.random.words(3),
   completed: false,
-  dueDate: new Date(),
-  theme: 'blank'
+  dueDate: new Date()
 })
 
 export class AddTodoSpy implements AddTodo {

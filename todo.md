@@ -1,2 +1,2 @@
-- [ ] MongoDb Update
-- [ ] Remove Theme
+- [x] MongoDb Update - Impossible without refactoring
+- [x] Remove Theme
