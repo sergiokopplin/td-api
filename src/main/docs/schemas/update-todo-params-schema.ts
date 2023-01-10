@@ -4,7 +4,7 @@ export const updateTodoParamsSchema = {
     title: {
       type: 'string'
     },
-    dueDate: {
+    currentDate: {
       type: 'string'
     },
     id: {

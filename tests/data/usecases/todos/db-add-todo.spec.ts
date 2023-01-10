@@ -31,7 +31,7 @@ describe('DbAddTodo', () => {
     const addAccountParams = mockAddTodoParams()
     await sut.add(addAccountParams)
     expect(addTodoRepositorySpy.title).toBe(addAccountParams.title)
-    expect(addTodoRepositorySpy.dueDate).toBe(addAccountParams.dueDate)
+    expect(addTodoRepositorySpy.currentDate).toBe(addAccountParams.currentDate)
   })
 
   test('Should return an todo if it succeeds', async () => {

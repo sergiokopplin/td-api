@@ -7,7 +7,7 @@ export const todoSchema = {
     title: {
       type: 'string'
     },
-    dueDate: {
+    currentDate: {
       type: 'string'
     },
     completed: {

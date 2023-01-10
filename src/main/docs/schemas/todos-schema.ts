@@ -9,7 +9,7 @@ export const todosSchema = {
       title: {
         type: 'string'
       },
-      dueDate: {
+      currentDate: {
         type: 'string'
       },
       completed: {

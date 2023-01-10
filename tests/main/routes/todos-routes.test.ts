@@ -55,7 +55,7 @@ describe('Todos Routes', () => {
           .post('/api/todos')
           .send({
             title: faker.random.words(3),
-            dueDate: new Date()
+            currentDate: new Date()
           })
           .expect(403)
       })
@@ -68,7 +68,7 @@ describe('Todos Routes', () => {
           .set('x-access-token', accessToken)
           .send({
             title: faker.random.words(3),
-            dueDate: new Date()
+            currentDate: new Date()
           })
           .expect(201)
       })

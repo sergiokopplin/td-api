@@ -9,7 +9,7 @@ export namespace AddTodoRepository {
 
   export interface Params {
     title: string
-    dueDate?: Date
+    currentDate?: Date
     accountId: string
   }
 }

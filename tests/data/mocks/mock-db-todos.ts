@@ -14,19 +14,19 @@ const mockTodo: Todo = {
   accountId: faker.datatype.uuid(),
   title: faker.random.words(3),
   completed: false,
-  dueDate: new Date()
+  currentDate: new Date()
 }
 
 export class AddTodoRepositorySpy implements AddTodoRepository {
-  dueDate: Date
+  currentDate: Date
   title: string
   result = mockTodo
 
   async add ({
-    dueDate,
+    currentDate,
     title
   }: AddTodoRepository.Params): Promise<AddTodoRepository.Result> {
-    this.dueDate = dueDate
+    this.currentDate = currentDate
     this.title = title
     return this.result
   }

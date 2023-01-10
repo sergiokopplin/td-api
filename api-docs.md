@@ -31,7 +31,7 @@
 ```json
 {
   "text": "teste",
-  "current_date": "2023-01-06",
+  "currentDate": "2023-01-06",
   "done": false,
   "list_id": null
 }
@@ -60,7 +60,7 @@
   "recurring_todos": [],
   "todos": [
     {
-      "current_date": "2023-01-06",
+      "currentDate": "2023-01-06",
       "done": false,
       "id": 161241030,
       "list": null,
@@ -69,7 +69,7 @@
       "workspace_id": 785437
     },
     {
-      "current_date": "2023-01-07",
+      "currentDate": "2023-01-07",
       "done": false,
       "id": 161240860,
       "list": null,
@@ -78,7 +78,7 @@
       "workspace_id": 785437
     },
     {
-      "current_date": "2023-01-13",
+      "currentDate": "2023-01-13",
       "done": false,
       "id": 161202690,
       "list": null,
@@ -100,7 +100,7 @@
     "cid": null,
     "column_updated_at": null,
     "created_at": "2023-01-07T00:56:50",
-    "current_date": "2023-01-25",
+    "currentDate": "2023-01-25",
     "deleted_at": null,
     "done": false,
     "done_updated_at": null,
@@ -130,7 +130,7 @@
     "cid": null,
     "column_updated_at": null,
     "created_at": "2023-01-07T00:56:50",
-    "current_date": "2023-01-26",
+    "currentDate": "2023-01-26",
     "deleted_at": null,
     "done": false,
     "done_updated_at": null,
@@ -160,7 +160,7 @@
     "cid": null,
     "column_updated_at": null,
     "created_at": "2023-01-07T00:56:50",
-    "current_date": "2023-01-27",
+    "currentDate": "2023-01-27",
     "deleted_at": null,
     "done": false,
     "done_updated_at": null,
@@ -190,7 +190,7 @@
     "cid": null,
     "column_updated_at": null,
     "created_at": "2023-01-07T00:56:50",
-    "current_date": "2023-01-28",
+    "currentDate": "2023-01-28",
     "deleted_at": null,
     "done": false,
     "done_updated_at": null,

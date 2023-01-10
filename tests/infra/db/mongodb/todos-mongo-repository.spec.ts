@@ -41,11 +41,11 @@ describe('TodosMongoRepository', () => {
       const sut = makeSut()
       const result = await sut.add({
         title: mockAddTodoParams().title,
-        dueDate: new Date('2021-03-17T23:18:04.822Z'),
+        currentDate: new Date('2021-03-17T23:18:04.822Z'),
         accountId: mockAddTodoParams().accountId
       })
       expect(result.id).toBeTruthy()
-      expect(result.dueDate).toEqual(new Date('2021-03-17T23:18:04.822Z'))
+      expect(result.currentDate).toEqual(new Date('2021-03-17T23:18:04.822Z'))
     })
   })
 
@@ -110,14 +110,14 @@ describe('TodosMongoRepository', () => {
         id: result.ops[0]._id,
         completed: true,
         title: 'new title',
-        dueDate: new Date('2021-03-17T23:18:04.822Z'),
+        currentDate: new Date('2021-03-17T23:18:04.822Z'),
         accountId: mockAddTodoParams().accountId
       })
       expect(updateResult).toEqual({
         id: result.ops[0]._id,
         completed: true,
         title: 'new title',
-        dueDate: new Date('2021-03-17T23:18:04.822Z'),
+        currentDate: new Date('2021-03-17T23:18:04.822Z'),
         accountId: mockAddTodoParams().accountId
       })
     })
@@ -128,7 +128,7 @@ describe('TodosMongoRepository', () => {
         id: '60480d9b39bab84bf07eac95',
         completed: true,
         title: 'new title',
-        dueDate: new Date('2021-03-17T23:18:04.822Z'),
+        currentDate: new Date('2021-03-17T23:18:04.822Z'),
         accountId: mockAddTodoParams().accountId
       })
       expect(updateResult).toEqual(null)
