@@ -111,7 +111,7 @@ describe('TodosMongoRepository', () => {
       const result = await todosCollection.insertOne(todo)
       const updateResult = await sut.update({
         id: result.ops[0]._id,
-        completed: false,
+        completed: true,
         title: 'new title',
         dueDate: new Date('2021-03-17T23:18:04.822Z'),
         theme: 'blank',
@@ -119,7 +119,7 @@ describe('TodosMongoRepository', () => {
       })
       expect(updateResult).toEqual({
         id: result.ops[0]._id,
-        completed: false,
+        completed: true,
         title: 'new title',
         dueDate: new Date('2021-03-17T23:18:04.822Z'),
         theme: 'blank',
