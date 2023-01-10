@@ -16,7 +16,7 @@
     "lint:fix": "./node_modules/.bin/eslint src tests --fix",
     "lint:type": "./node_modules/.bin/tsc --noEmit",
     "lint": "./node_modules/.bin/eslint src tests",
-    "qa": "npm run lint:fix && npm run lint:type && npm run test",
+    "qa": "npm run lint:type && npm run lint:fix && npm run test",
     "start": "node dist/main/server.js",
     "test:ci": "npm test -- --coverage",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
