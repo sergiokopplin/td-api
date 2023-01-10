@@ -77,8 +77,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "npx eslint src --fix",
-      "npx eslint tests --fix"
+      "npx eslint --fix"
     ]
   }
 }
