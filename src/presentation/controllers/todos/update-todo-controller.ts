@@ -25,7 +25,7 @@ export class UpdateTodoController implements Controller {
 export namespace UpdateTodoController {
   export interface Request {
     id: string
-    title: string
+    text: string
     completed: boolean
   }
 }

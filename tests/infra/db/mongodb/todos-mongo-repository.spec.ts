@@ -28,12 +28,12 @@ describe('TodosMongoRepository', () => {
     test('Should return an todo on success', async () => {
       const sut = makeSut()
       const result = await sut.add({
-        title: mockAddTodoParams().title,
+        text: mockAddTodoParams().text,
         workspaceId: mockAddTodoParams().workspaceId,
         currentDate: new Date('2021-03-17T23:18:04.822Z')
       })
       expect(result.id).toBeTruthy()
-      expect(result.title).toBe(mockAddTodoParams().title)
+      expect(result.text).toBe(mockAddTodoParams().text)
       expect(result.completed).toBe(false)
       expect(result.workspaceId).toBe(mockAddTodoParams().workspaceId)
     })
@@ -41,7 +41,7 @@ describe('TodosMongoRepository', () => {
     test('Should return correctly with optional params', async () => {
       const sut = makeSut()
       const result = await sut.add({
-        title: mockAddTodoParams().title,
+        text: mockAddTodoParams().text,
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspaceId: mockAddTodoParams().workspaceId
       })
@@ -110,14 +110,14 @@ describe('TodosMongoRepository', () => {
       const updateResult = await sut.update({
         id: result.ops[0]._id,
         completed: true,
-        title: 'new title',
+        text: 'new text',
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspaceId: mockAddTodoParams().workspaceId
       })
       expect(updateResult).toEqual({
         id: result.ops[0]._id,
         completed: true,
-        title: 'new title',
+        text: 'new text',
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspaceId: mockAddTodoParams().workspaceId
       })
@@ -128,7 +128,7 @@ describe('TodosMongoRepository', () => {
       const updateResult = await sut.update({
         id: '60480d9b39bab84bf07eac95',
         completed: true,
-        title: 'new title',
+        text: 'new text',
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspaceId: mockAddTodoParams().workspaceId
       })
@@ -141,17 +141,17 @@ describe('TodosMongoRepository', () => {
       const sut = makeSut()
       const workspaceId = mockAddTodoParams().workspaceId
       await todosCollection.insertOne({
-        title: 'first title',
+        text: 'first text',
         completed: true,
         workspaceId
       })
       await todosCollection.insertOne({
-        title: 'second title',
+        text: 'second text',
         completed: false,
         workspaceId
       })
       await todosCollection.insertOne({
-        title: 'second title',
+        text: 'second text',
         completed: false
       })
       const loadAllResult = await sut.loadAll(mockAddTodoParams().workspaceId)
@@ -165,7 +165,7 @@ describe('TodosMongoRepository', () => {
     test('Should return empty todos', async () => {
       const sut = makeSut()
       await todosCollection.insertOne({
-        title: 'second title',
+        text: 'second text',
         completed: false
       })
       const loadAllResult = await sut.loadAll(mockAddTodoParams().workspaceId)
@@ -180,14 +180,14 @@ describe('TodosMongoRepository', () => {
       const sut = makeSut()
       const workspaceId = mockAddTodoParams().workspaceId
       const result = await todosCollection.insertOne({
-        title: 'first title',
+        text: 'first text',
         completed: true,
         workspaceId
       })
       const loadAllResult = await sut.load({ id: result.insertedId, workspaceId })
       expect(loadAllResult).toEqual({
         id: result.insertedId,
-        title: 'first title',
+        text: 'first text',
         completed: true,
         workspaceId
       })
@@ -197,7 +197,7 @@ describe('TodosMongoRepository', () => {
       const sut = makeSut()
       const workspaceId = mockAddTodoParams().workspaceId
       await todosCollection.insertOne({
-        title: 'second title',
+        text: 'second text',
         completed: false
       })
       const loadAllResult = await sut.load({

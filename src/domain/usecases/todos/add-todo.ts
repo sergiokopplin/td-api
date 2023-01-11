@@ -8,7 +8,7 @@ export namespace AddTodo {
   export type Result = Todo
 
   export interface Params {
-    title: string
+    text: string
     currentDate: Date
     workspaceId: string
   }

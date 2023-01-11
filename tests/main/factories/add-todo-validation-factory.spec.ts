@@ -14,8 +14,8 @@ describe('AddTodoValidation Factory', () => {
     expect(composite).toEqual(
       ValidationComposite.build([
         new RequiredFieldValidator('workspaceId'),
-        new RequiredFieldValidator('title'),
-        new MinLengthValidator('title', 3),
+        new RequiredFieldValidator('text'),
+        new MinLengthValidator('text', 3),
         new DateValidator('currentDate', new DateValidatorAdapter())
       ])
     )

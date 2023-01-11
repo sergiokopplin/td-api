@@ -1,7 +1,7 @@
 export const updateTodoParamsSchema = {
   type: 'object',
   properties: {
-    title: {
+    text: {
       type: 'string'
     },
     currentDate: {
@@ -14,5 +14,5 @@ export const updateTodoParamsSchema = {
       type: 'boolean'
     }
   },
-  required: ['id', 'completed', 'title']
+  required: ['id', 'completed', 'text']
 }

@@ -8,7 +8,7 @@ import { ValidationSpy, UpdateTodoSpy } from '@/tests/presentation/mocks'
 const mockRequest = (): UpdateTodoController.Request => {
   return {
     id: faker.datatype.uuid(),
-    title: faker.random.words(3),
+    text: faker.random.words(3),
     completed: true
   }
 }
@@ -34,7 +34,7 @@ const makeSut = (): SutTypes => {
 describe('Add Todo Controller', () => {
   test('Should throw if Validation throws', async () => {
     const { sut, validationSpy } = makeSut()
-    validationSpy.error = new InvalidParamError('title')
+    validationSpy.error = new InvalidParamError('text')
     const response = await sut.handle(mockRequest())
     expect(response).toEqual(badRequestError(validationSpy.error))
   })

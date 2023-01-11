@@ -6,7 +6,7 @@ export const todosSchema = {
       id: {
         type: 'string'
       },
-      title: {
+      text: {
         type: 'string'
       },
       currentDate: {
@@ -16,6 +16,6 @@ export const todosSchema = {
         type: 'boolean'
       }
     },
-    required: ['id', 'title', 'completed']
+    required: ['id', 'text', 'completed']
   }
 }

@@ -12,22 +12,22 @@ import { Todo } from '@/domain/models'
 const mockTodo: Todo = {
   id: faker.datatype.uuid(),
   workspaceId: faker.random.numeric(6),
-  title: faker.random.words(3),
+  text: faker.random.words(3),
   completed: false,
   currentDate: new Date()
 }
 
 export class AddTodoRepositorySpy implements AddTodoRepository {
   currentDate: Date
-  title: string
+  text: string
   result = mockTodo
 
   async add ({
     currentDate,
-    title
+    text
   }: AddTodoRepository.Params): Promise<AddTodoRepository.Result> {
     this.currentDate = currentDate
-    this.title = title
+    this.text = text
     return this.result
   }
 }
@@ -47,7 +47,7 @@ export class DeleteTodoRepositorySpy implements DeleteTodoRepository {
 export class UpdateTodoRepositorySpy implements UpdateTodoRepository {
   params = {
     id: faker.datatype.uuid(),
-    title: faker.random.words(3),
+    text: faker.random.words(3),
     completed: false
   }
 

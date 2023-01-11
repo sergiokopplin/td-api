@@ -5,7 +5,7 @@ import schemas from './schema'
 export default {
   openapi: '3.0.0',
   info: {
-    title: 'TODO MVC API',
+    text: 'TODO MVC API',
     version: '1.0.0'
   },
   servers: [

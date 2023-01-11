@@ -15,8 +15,8 @@ describe('UpdateTodoValidation Factory', () => {
       ValidationComposite.build([
         new RequiredFieldValidator('id'),
         new ObjectIdValidator('id', new ObjectIdValidatorAdapter()),
-        new RequiredFieldValidator('title'),
-        new MinLengthValidator('title', 3),
+        new RequiredFieldValidator('text'),
+        new MinLengthValidator('text', 3),
         new RequiredFieldValidator('completed'),
         new DateValidator('currentDate', new DateValidatorAdapter())
       ])

@@ -55,7 +55,7 @@ describe('Todos Routes', () => {
         await request(app)
           .post('/api/workspaces/123456/todos')
           .send({
-            title: faker.random.words(3),
+            text: faker.random.words(3),
             currentDate: new Date()
           })
           .expect(403)
@@ -68,7 +68,7 @@ describe('Todos Routes', () => {
           .post('/api/workspaces/123456/todos')
           .set('x-access-token', accessToken)
           .send({
-            title: faker.random.words(3),
+            text: faker.random.words(3),
             currentDate: new Date(),
             workspaceId: faker.random.numeric(6)
           })
@@ -125,7 +125,7 @@ describe('Todos Routes', () => {
           .send({
             id: result.ops[0]._id,
             completed: true,
-            title: 'new title'
+            text: 'new text'
           })
           .expect(403)
       })
@@ -141,7 +141,7 @@ describe('Todos Routes', () => {
           .send({
             id: result.ops[0]._id,
             completed: true,
-            title: 'new title'
+            text: 'new text'
           })
           .expect(200)
       })
@@ -155,7 +155,7 @@ describe('Todos Routes', () => {
           .send({
             id: '60480d9b39bab84bf07eac95',
             completed: true,
-            title: 'new title'
+            text: 'new text'
           })
           .expect(404)
       })

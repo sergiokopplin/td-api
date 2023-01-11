@@ -1,6 +1,6 @@
 export interface Todo {
   id: string
-  title: string
+  text: string
   completed: boolean
   currentDate: Date
   workspaceId: string

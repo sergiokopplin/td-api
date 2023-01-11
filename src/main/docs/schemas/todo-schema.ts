@@ -4,7 +4,7 @@ export const todoSchema = {
     id: {
       type: 'string'
     },
-    title: {
+    text: {
       type: 'string'
     },
     currentDate: {
@@ -14,5 +14,5 @@ export const todoSchema = {
       type: 'boolean'
     }
   },
-  required: ['id', 'title', 'completed']
+  required: ['id', 'text', 'completed']
 }

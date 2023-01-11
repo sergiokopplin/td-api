@@ -6,7 +6,7 @@ export class DbAddTodo implements AddTodo {
 
   async add (todo: AddTodo.Params): Promise<AddTodo.Result> {
     return await this.addTodoRepository.add({
-      title: todo.title,
+      text: todo.text,
       currentDate: todo.currentDate,
       workspaceId: todo.workspaceId
     })

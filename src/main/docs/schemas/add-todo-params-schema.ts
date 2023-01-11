@@ -1,12 +1,12 @@
 export const addTodoParamsSchema = {
   type: 'object',
   properties: {
-    title: {
+    text: {
       type: 'string'
     },
     currentDate: {
       type: 'string'
     }
   },
-  required: ['title']
+  required: ['text']
 }

@@ -1,6 +1,6 @@
 - [x] MongoDb Update - Impossible without refactoring
 - [x] Remove Theme
 - [ ] Reuse interfaces to avoid duplicated types
-- [ ] Remove accountId from todos
-- [ ] Change title to text on todos
+- [x] Remove accountId from todos
+- [x] Change title to text on todos
 - [ ] Change completed to Done on todos

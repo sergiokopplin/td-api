@@ -30,7 +30,7 @@ describe('DbAddTodo', () => {
     const { sut, addTodoRepositorySpy } = makeSut()
     const addAccountParams = mockAddTodoParams()
     await sut.add(addAccountParams)
-    expect(addTodoRepositorySpy.title).toBe(addAccountParams.title)
+    expect(addTodoRepositorySpy.text).toBe(addAccountParams.text)
     expect(addTodoRepositorySpy.currentDate).toBe(addAccountParams.currentDate)
   })
 
