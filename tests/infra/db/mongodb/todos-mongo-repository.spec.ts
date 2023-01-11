@@ -29,7 +29,8 @@ describe('TodosMongoRepository', () => {
       const sut = makeSut()
       const result = await sut.add({
         title: mockAddTodoParams().title,
-        workspaceId: mockAddTodoParams().workspaceId
+        workspaceId: mockAddTodoParams().workspaceId,
+        currentDate: new Date('2021-03-17T23:18:04.822Z')
       })
       expect(result.id).toBeTruthy()
       expect(result.title).toBe(mockAddTodoParams().title)

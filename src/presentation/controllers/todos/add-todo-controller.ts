@@ -22,7 +22,7 @@ export class AddTodoController implements Controller {
 export namespace AddTodoController {
   export interface Request {
     title: string
-    currentDate?: Date
+    currentDate: Date
     workspaceId: string
   }
 }

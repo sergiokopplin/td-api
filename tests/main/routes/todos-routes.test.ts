@@ -53,7 +53,7 @@ describe('Todos Routes', () => {
     describe('add', () => {
       test('Should return 403 without accessToken', async () => {
         await request(app)
-          .post('/api/todos')
+          .post('/api/workspaces/123456/todos')
           .send({
             title: faker.random.words(3),
             currentDate: new Date()
@@ -65,7 +65,7 @@ describe('Todos Routes', () => {
         const accessToken = await mockAccessToken()
 
         await request(app)
-          .post('/api/todos')
+          .post('/api/workspaces/123456/todos')
           .set('x-access-token', accessToken)
           .send({
             title: faker.random.words(3),

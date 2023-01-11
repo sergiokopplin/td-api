@@ -8,7 +8,8 @@ import { AddTodoSpy, ValidationSpy } from '@/tests/presentation/mocks'
 const mockRequest = (): AddTodoController.Request => {
   return {
     title: faker.random.words(3),
-    workspaceId: faker.datatype.uuid()
+    workspaceId: faker.datatype.uuid(),
+    currentDate: new Date('2021-03-17T23:18:04.822Z')
   }
 }
 

@@ -9,7 +9,7 @@ export namespace AddTodo {
 
   export interface Params {
     title: string
-    currentDate?: Date
+    currentDate: Date
     workspaceId: string
   }
 }
