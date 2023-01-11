@@ -2,12 +2,29 @@
 
 /workspaces/785437/todos - POST
 
+Body
+
 ```json
 {
   "text": "teste",
   "currentDate": "2023-01-06",
   "done": false,
   "list_id": null
+}
+```
+
+Response
+
+```json
+{
+  "todo": {
+    "current_date": "2023-01-11",
+    "done": false,
+    "id": 161781748,
+    "text": "asdasdasd",
+    "workspace_id": 785437,
+    ...
+  }
 }
 ```
 
