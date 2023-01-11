@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "20ab62d6-aa6d-4bc3-9aa4-a13812e82e15",
+    "colName": "Todo API",
+    "created": "2023-01-11T13:27:39.612Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "9e0c99b0-2cf7-433b-9104-363657b0823b",
+        "name": "Todos",
+        "containerId": "",
+        "created": "2023-01-11T13:28:35.764Z",
+        "sortNum": 10000
+      }
+    ],
+    "settings": {
+      "headers": [],
+      "tests": [],
+      "options": {
+        "baseUrl": "localhost:5050/api"
+      }
+    }
+  }
+]
