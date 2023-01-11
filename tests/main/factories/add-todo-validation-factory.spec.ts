@@ -13,7 +13,7 @@ describe('AddTodoValidation Factory', () => {
     const composite = makeAddTodoValidation()
     expect(composite).toEqual(
       ValidationComposite.build([
-        new RequiredFieldValidator('workspaceId'),
+        new RequiredFieldValidator('workspacesId'),
         new RequiredFieldValidator('text'),
         new MinLengthValidator('text', 3),
         new DateValidator('currentDate', new DateValidatorAdapter())

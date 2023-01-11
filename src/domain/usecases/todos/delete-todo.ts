@@ -5,6 +5,6 @@ export interface DeleteTodo {
 export namespace DeleteTodo {
   export interface Params {
     id: string
-    workspaceId: string
+    workspacesId: number
   }
 }

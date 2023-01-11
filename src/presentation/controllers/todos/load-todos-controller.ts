@@ -7,7 +7,7 @@ export class LoadTodosController implements Controller {
 
   async handle (request: LoadTodosController.Request): Promise<HttpResponse> {
     try {
-      const result = await this.loadTodos.loadAll(request.workspaceId)
+      const result = await this.loadTodos.loadAll(request.workspacesId)
       return ok(result)
     } catch (error) {
       return serverError(error)
@@ -17,6 +17,6 @@ export class LoadTodosController implements Controller {
 
 export namespace LoadTodosController {
   export interface Request {
-    workspaceId: string
+    workspacesId: number
   }
 }

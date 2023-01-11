@@ -9,6 +9,6 @@ export namespace LoadTodoRepository {
 
   export interface Param {
     id: string
-    workspaceId: string
+    workspacesId: number
   }
 }

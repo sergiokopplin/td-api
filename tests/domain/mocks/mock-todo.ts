@@ -8,22 +8,22 @@ const mockTodo: Todo = {
   done: false,
   id: faker.datatype.uuid(),
   currentDate: new Date('2021-03-17T23:18:04.822Z'),
-  workspaceId: faker.datatype.uuid()
+  workspacesId: faker.datatype.number(6)
 }
 
-const { text, done, id, currentDate, workspaceId } = mockTodo
+const { text, done, id, currentDate, workspacesId } = mockTodo
 
 export const mockAddTodoParams = (): AddTodo.Params => ({
   text,
   currentDate,
-  workspaceId
+  workspacesId
 })
-export const mockDeleteTodoParams = (): DeleteTodo.Params => ({ id, workspaceId })
-export const mockLoadTodoParams = (): LoadTodo.Param => ({ id, workspaceId })
+export const mockDeleteTodoParams = (): DeleteTodo.Params => ({ id, workspacesId })
+export const mockLoadTodoParams = (): LoadTodo.Param => ({ id, workspacesId })
 export const mockUpdateTodoParams = (): UpdateTodo.Params => ({
   text,
   done,
   id,
   currentDate,
-  workspaceId
+  workspacesId
 })

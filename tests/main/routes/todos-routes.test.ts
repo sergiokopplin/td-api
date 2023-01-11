@@ -70,7 +70,7 @@ describe('Todos Routes', () => {
           .send({
             text: faker.random.words(3),
             currentDate: new Date(),
-            workspaceId: faker.random.numeric(6)
+            workspacesId: faker.random.numeric(6)
           })
           .expect(201)
       })

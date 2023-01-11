@@ -1,3 +1,3 @@
 export interface DeleteDoneTodos {
-  delete: (workspaceId: string) => Promise<void>
+  delete: (workspacesId: number) => Promise<void>
 }

@@ -3,5 +3,5 @@ export interface Todo {
   text: string
   done: boolean
   currentDate: Date
-  workspaceId: string
+  workspacesId: number
 }

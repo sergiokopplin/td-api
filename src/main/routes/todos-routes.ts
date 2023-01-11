@@ -13,7 +13,7 @@ import { auth } from '@/main/middlewares'
 
 export const todosRoutes = (router: Router): void => {
   // v2
-  router.post('/workspaces/:workspaceId/todos', auth, expressRouteAdapt(makeAddTodoController()))
+  router.post('/workspaces/:workspacesId/todos', auth, expressRouteAdapt(makeAddTodoController()))
 
   // v1
   router.delete('/todos/:id', auth, expressRouteAdapt(makeDeleteTodoController()))

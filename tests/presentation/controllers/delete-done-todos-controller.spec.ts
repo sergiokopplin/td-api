@@ -22,7 +22,7 @@ const makeSut = (): SutTypes => {
 
 const mockRequest = (): DeleteDoneTodosController.Request => {
   return {
-    workspaceId: faker.datatype.uuid()
+    workspacesId: faker.datatype.number(6)
   }
 }
 
@@ -41,7 +41,7 @@ describe('DeleteDoneTodos Controller', () => {
     const deleteSpy = jest.spyOn(deleteDoneTodosSpy, 'delete')
     const request = mockRequest()
     await sut.handle(request)
-    expect(deleteSpy).toHaveBeenCalledWith(request.workspaceId)
+    expect(deleteSpy).toHaveBeenCalledWith(request.workspacesId)
   })
 
   test('Should return 204 when ok', async () => {

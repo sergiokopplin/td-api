@@ -29,15 +29,15 @@ implements
     return MongoHelper.mapId(result.ops[0])
   }
 
-  async delete (id: string, workspaceId: string): Promise<void> {
+  async delete (id: string, workspacesId: number): Promise<void> {
     const collection = await MongoHelper.getCollection('todos')
-    await collection.deleteOne({ _id: new ObjectId(id), workspaceId })
+    await collection.deleteOne({ _id: new ObjectId(id), workspacesId })
   }
 
-  async deleteDone (workspaceId: string): Promise<void> {
+  async deleteDone (workspacesId: number): Promise<void> {
     const collection = await MongoHelper.getCollection('todos')
     await collection.deleteMany({
-      workspaceId,
+      workspacesId,
       done: true
     })
   }
@@ -52,9 +52,9 @@ implements
     return result.value && MongoHelper.mapId(result.value)
   }
 
-  async loadAll (workspaceId: string): Promise<LoadTodosRepository.Result[]> {
+  async loadAll (workspacesId: number): Promise<LoadTodosRepository.Result[]> {
     const collection = await MongoHelper.getCollection('todos')
-    const result = collection.find({ workspaceId })
+    const result = collection.find({ workspacesId })
     const list = await result.toArray()
     return result && list.map(item => MongoHelper.mapId(item))
   }
@@ -63,7 +63,7 @@ implements
     const collection = await MongoHelper.getCollection('todos')
     const result = await collection.findOne({
       _id: new ObjectId(todo.id),
-      workspaceId: todo.workspaceId
+      workspacesId: todo.workspacesId
     })
     return result && MongoHelper.mapId(result)
   }

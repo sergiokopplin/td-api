@@ -23,6 +23,6 @@ export namespace AddTodoController {
   export interface Request {
     text: string
     currentDate: Date
-    workspaceId: string
+    workspacesId: number
   }
 }
