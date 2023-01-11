@@ -2,3 +2,4 @@
 - [x] Remove Theme
 - [ ] Done instead of Completed
 - [ ] Reuse interfaces to avoid duplicated types
+- [ ] Remove accountId from todos
