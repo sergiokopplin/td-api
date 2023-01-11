@@ -17,5 +17,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "adb98882-336a-4314-8535-2f2d0a031e77",
+    "colId": "20ab62d6-aa6d-4bc3-9aa4-a13812e82e15",
+    "containerId": "eafb6ac5-15d1-4007-8031-1095ec2dadc8",
+    "name": "Signup",
+    "url": "/signup",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-01-11T13:37:57.558Z",
+    "modified": "2023-01-11T13:45:47.096Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Sérgio Aragão Kopplin\",\n  \"email\": \"sergiokopplin@gmail.com\",\n  \"password\": \"12345678\",\n  \"passwordConfirmation\": \"12345678\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

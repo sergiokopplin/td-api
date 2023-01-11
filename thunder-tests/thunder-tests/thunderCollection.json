@@ -11,6 +11,13 @@
         "containerId": "",
         "created": "2023-01-11T13:28:35.764Z",
         "sortNum": 10000
+      },
+      {
+        "_id": "eafb6ac5-15d1-4007-8031-1095ec2dadc8",
+        "name": "Accounts",
+        "containerId": "",
+        "created": "2023-01-11T13:37:26.519Z",
+        "sortNum": 20000
       }
     ],
     "settings": {
