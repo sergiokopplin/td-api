@@ -1,5 +1,16 @@
 # TeuxDeux Api Clone
 
+/workspaces/785437/todos - POST
+
+```json
+{
+  "text": "teste",
+  "currentDate": "2023-01-06",
+  "done": false,
+  "list_id": null
+}
+```
+
 ---
 
 /workspaces/785437/todos/161202560/state - POST
@@ -21,19 +32,6 @@
 ```json
 {
   "text": "Add 'every day' to the end of a to-do and it will appear teste"
-}
-```
-
----
-
-/workspaces/785437/todos - POST
-
-```json
-{
-  "text": "teste",
-  "currentDate": "2023-01-06",
-  "done": false,
-  "list_id": null
 }
 ```
 
