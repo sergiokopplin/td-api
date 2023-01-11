@@ -4,7 +4,7 @@
     "colId": "20ab62d6-aa6d-4bc3-9aa4-a13812e82e15",
     "containerId": "9e0c99b0-2cf7-433b-9104-363657b0823b",
     "name": "Add",
-    "url": "/workspace/123456/todos",
+    "url": "/workspaces/123456/todos",
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-01-11T13:28:43.482Z",
