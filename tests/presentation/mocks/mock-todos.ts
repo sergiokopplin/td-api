@@ -4,7 +4,7 @@ import { Todo } from '@/domain/models'
 import {
   AddTodo,
   DeleteTodo,
-  DeleteCompletedTodos,
+  DeleteDoneTodos,
   UpdateTodo,
   LoadTodos,
   LoadTodo
@@ -14,7 +14,7 @@ const mockTodo = (): Todo => ({
   id: faker.datatype.uuid(),
   workspaceId: faker.random.numeric(6),
   text: faker.random.words(3),
-  completed: false,
+  done: false,
   currentDate: new Date()
 })
 
@@ -36,7 +36,7 @@ export class DeleteTodoSpy implements DeleteTodo {
   }
 }
 
-export class DeleteCompletedTodosSpy implements DeleteCompletedTodos {
+export class DeleteDoneTodosSpy implements DeleteDoneTodos {
   result = null
 
   async delete (): Promise<void> {

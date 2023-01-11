@@ -1,7 +1,7 @@
 export interface Todo {
   id: string
   text: string
-  completed: boolean
+  done: boolean
   currentDate: Date
   workspaceId: string
 }

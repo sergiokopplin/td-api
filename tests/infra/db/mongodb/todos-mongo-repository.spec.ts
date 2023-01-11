@@ -34,7 +34,7 @@ describe('TodosMongoRepository', () => {
       })
       expect(result.id).toBeTruthy()
       expect(result.text).toBe(mockAddTodoParams().text)
-      expect(result.completed).toBe(false)
+      expect(result.done).toBe(false)
       expect(result.workspaceId).toBe(mockAddTodoParams().workspaceId)
     })
 
@@ -63,38 +63,38 @@ describe('TodosMongoRepository', () => {
     })
   })
 
-  describe('deleteCompleted()', () => {
+  describe('deleteDone()', () => {
     test('Should return 1 on count', async () => {
       const sut = makeSut()
       const workspaceId = faker.datatype.uuid()
       await todosCollection.insertMany([
         {
           ...mockAddTodoParams(),
-          completed: true
+          done: true
         },
         {
           ...mockAddTodoParams(),
-          completed: true,
+          done: true,
           workspaceId
         },
         {
           ...mockAddTodoParams(),
-          completed: false
+          done: false
         },
         {
           ...mockAddTodoParams(),
-          completed: true,
+          done: true,
           workspaceId
         },
         {
           ...mockAddTodoParams(),
-          completed: false,
+          done: false,
           workspaceId
         }
       ])
       let count = await todosCollection.countDocuments()
       expect(count).toBe(5)
-      await sut.deleteCompleted(workspaceId)
+      await sut.deleteDone(workspaceId)
       count = await todosCollection.countDocuments()
       expect(count).toBe(3)
       const result = await todosCollection.find({ workspaceId }).toArray()
@@ -109,14 +109,14 @@ describe('TodosMongoRepository', () => {
       const result = await todosCollection.insertOne(todo)
       const updateResult = await sut.update({
         id: result.ops[0]._id,
-        completed: true,
+        done: true,
         text: 'new text',
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspaceId: mockAddTodoParams().workspaceId
       })
       expect(updateResult).toEqual({
         id: result.ops[0]._id,
-        completed: true,
+        done: true,
         text: 'new text',
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspaceId: mockAddTodoParams().workspaceId
@@ -127,7 +127,7 @@ describe('TodosMongoRepository', () => {
       const sut = makeSut()
       const updateResult = await sut.update({
         id: '60480d9b39bab84bf07eac95',
-        completed: true,
+        done: true,
         text: 'new text',
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspaceId: mockAddTodoParams().workspaceId
@@ -142,17 +142,17 @@ describe('TodosMongoRepository', () => {
       const workspaceId = mockAddTodoParams().workspaceId
       await todosCollection.insertOne({
         text: 'first text',
-        completed: true,
+        done: true,
         workspaceId
       })
       await todosCollection.insertOne({
         text: 'second text',
-        completed: false,
+        done: false,
         workspaceId
       })
       await todosCollection.insertOne({
         text: 'second text',
-        completed: false
+        done: false
       })
       const loadAllResult = await sut.loadAll(mockAddTodoParams().workspaceId)
       const count = await todosCollection.countDocuments()
@@ -166,7 +166,7 @@ describe('TodosMongoRepository', () => {
       const sut = makeSut()
       await todosCollection.insertOne({
         text: 'second text',
-        completed: false
+        done: false
       })
       const loadAllResult = await sut.loadAll(mockAddTodoParams().workspaceId)
       const count = await todosCollection.countDocuments()
@@ -181,14 +181,14 @@ describe('TodosMongoRepository', () => {
       const workspaceId = mockAddTodoParams().workspaceId
       const result = await todosCollection.insertOne({
         text: 'first text',
-        completed: true,
+        done: true,
         workspaceId
       })
       const loadAllResult = await sut.load({ id: result.insertedId, workspaceId })
       expect(loadAllResult).toEqual({
         id: result.insertedId,
         text: 'first text',
-        completed: true,
+        done: true,
         workspaceId
       })
     })
@@ -198,7 +198,7 @@ describe('TodosMongoRepository', () => {
       const workspaceId = mockAddTodoParams().workspaceId
       await todosCollection.insertOne({
         text: 'second text',
-        completed: false
+        done: false
       })
       const loadAllResult = await sut.load({
         id: '6048177f57568d02bfca0f0f',

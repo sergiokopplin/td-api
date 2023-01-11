@@ -10,9 +10,9 @@ export const updateTodoParamsSchema = {
     id: {
       type: 'string'
     },
-    completed: {
+    done: {
       type: 'boolean'
     }
   },
-  required: ['id', 'completed', 'text']
+  required: ['id', 'done', 'text']
 }

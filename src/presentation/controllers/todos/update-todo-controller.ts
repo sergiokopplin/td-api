@@ -26,6 +26,6 @@ export namespace UpdateTodoController {
   export interface Request {
     id: string
     text: string
-    completed: boolean
+    done: boolean
   }
 }

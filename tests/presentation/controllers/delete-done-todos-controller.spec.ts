@@ -1,35 +1,35 @@
 import { faker } from '@faker-js/faker'
 
-import { DeleteCompletedTodosController } from '@/presentation/controllers'
+import { DeleteDoneTodosController } from '@/presentation/controllers'
 import { ServerError } from '@/presentation/errors'
 import { noResult, serverError } from '@/presentation/helpers'
-import { DeleteCompletedTodosSpy } from '@/tests/presentation/mocks'
+import { DeleteDoneTodosSpy } from '@/tests/presentation/mocks'
 
 interface SutTypes {
-  sut: DeleteCompletedTodosController
-  deleteCompletedTodosSpy: DeleteCompletedTodosSpy
+  sut: DeleteDoneTodosController
+  deleteDoneTodosSpy: DeleteDoneTodosSpy
 }
 
 const makeSut = (): SutTypes => {
-  const deleteCompletedTodosSpy = new DeleteCompletedTodosSpy()
-  const sut = new DeleteCompletedTodosController(deleteCompletedTodosSpy)
+  const deleteDoneTodosSpy = new DeleteDoneTodosSpy()
+  const sut = new DeleteDoneTodosController(deleteDoneTodosSpy)
 
   return {
     sut,
-    deleteCompletedTodosSpy
+    deleteDoneTodosSpy
   }
 }
 
-const mockRequest = (): DeleteCompletedTodosController.Request => {
+const mockRequest = (): DeleteDoneTodosController.Request => {
   return {
     workspaceId: faker.datatype.uuid()
   }
 }
 
-describe('DeleteCompletedTodos Controller', () => {
-  test('Should throw if DeleteCompletedTodos throws', async () => {
-    const { sut, deleteCompletedTodosSpy } = makeSut()
-    jest.spyOn(deleteCompletedTodosSpy, 'delete').mockImplementationOnce(async () => {
+describe('DeleteDoneTodos Controller', () => {
+  test('Should throw if DeleteDoneTodos throws', async () => {
+    const { sut, deleteDoneTodosSpy } = makeSut()
+    jest.spyOn(deleteDoneTodosSpy, 'delete').mockImplementationOnce(async () => {
       await Promise.reject(new ServerError(null))
     })
     const response = await sut.handle(mockRequest())
@@ -37,8 +37,8 @@ describe('DeleteCompletedTodos Controller', () => {
   })
 
   test('Should call DeleteTodo with correct params', async () => {
-    const { sut, deleteCompletedTodosSpy } = makeSut()
-    const deleteSpy = jest.spyOn(deleteCompletedTodosSpy, 'delete')
+    const { sut, deleteDoneTodosSpy } = makeSut()
+    const deleteSpy = jest.spyOn(deleteDoneTodosSpy, 'delete')
     const request = mockRequest()
     await sut.handle(request)
     expect(deleteSpy).toHaveBeenCalledWith(request.workspaceId)

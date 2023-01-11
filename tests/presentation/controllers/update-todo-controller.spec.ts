@@ -9,7 +9,7 @@ const mockRequest = (): UpdateTodoController.Request => {
   return {
     id: faker.datatype.uuid(),
     text: faker.random.words(3),
-    completed: true
+    done: true
   }
 }
 

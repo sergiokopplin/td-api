@@ -13,7 +13,7 @@ const mockTodo: Todo = {
   id: faker.datatype.uuid(),
   workspaceId: faker.random.numeric(6),
   text: faker.random.words(3),
-  completed: false,
+  done: false,
   currentDate: new Date()
 }
 
@@ -39,7 +39,7 @@ export class DeleteTodoRepositorySpy implements DeleteTodoRepository {
     this.id = id
   }
 
-  async deleteCompleted (): Promise<void> {
+  async deleteDone (): Promise<void> {
     return null
   }
 }
@@ -48,7 +48,7 @@ export class UpdateTodoRepositorySpy implements UpdateTodoRepository {
   params = {
     id: faker.datatype.uuid(),
     text: faker.random.words(3),
-    completed: false
+    done: false
   }
 
   result = mockTodo

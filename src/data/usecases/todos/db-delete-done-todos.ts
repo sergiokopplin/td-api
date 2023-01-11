@@ -1,10 +1,10 @@
 import { DeleteTodoRepository } from '@/data/protocols'
-import { DeleteCompletedTodos } from '@/domain/usecases'
+import { DeleteDoneTodos } from '@/domain/usecases'
 
-export class DbDeleteCompletedTodos implements DeleteCompletedTodos {
+export class DbDeleteDoneTodos implements DeleteDoneTodos {
   constructor (private readonly deleteTodoRepository: DeleteTodoRepository) {}
 
   async delete (workspaceId: string): Promise<void> {
-    await this.deleteTodoRepository.deleteCompleted(workspaceId)
+    await this.deleteTodoRepository.deleteDone(workspaceId)
   }
 }

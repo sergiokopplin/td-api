@@ -10,9 +10,9 @@ export const todoSchema = {
     currentDate: {
       type: 'string'
     },
-    completed: {
+    done: {
       type: 'boolean'
     }
   },
-  required: ['id', 'text', 'completed']
+  required: ['id', 'text', 'done']
 }

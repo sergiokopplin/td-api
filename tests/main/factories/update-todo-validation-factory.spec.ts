@@ -17,7 +17,7 @@ describe('UpdateTodoValidation Factory', () => {
         new ObjectIdValidator('id', new ObjectIdValidatorAdapter()),
         new RequiredFieldValidator('text'),
         new MinLengthValidator('text', 3),
-        new RequiredFieldValidator('completed'),
+        new RequiredFieldValidator('done'),
         new DateValidator('currentDate', new DateValidatorAdapter())
       ])
     )

@@ -21,7 +21,7 @@ implements
     const result = await collection.insertOne(
       RepositoryHelper.mapValidKeys(
         {
-          completed: false
+          done: false
         },
         todo
       )
@@ -34,11 +34,11 @@ implements
     await collection.deleteOne({ _id: new ObjectId(id), workspaceId })
   }
 
-  async deleteCompleted (workspaceId: string): Promise<void> {
+  async deleteDone (workspaceId: string): Promise<void> {
     const collection = await MongoHelper.getCollection('todos')
     await collection.deleteMany({
       workspaceId,
-      completed: true
+      done: true
     })
   }
 

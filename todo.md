@@ -3,4 +3,4 @@
 - [ ] Reuse interfaces to avoid duplicated types
 - [x] Remove accountId from todos
 - [x] Change title to text on todos
-- [ ] Change completed to Done on todos
+- [x] Change completed to Done on todos

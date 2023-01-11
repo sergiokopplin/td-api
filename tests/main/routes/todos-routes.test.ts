@@ -97,9 +97,9 @@ describe('Todos Routes', () => {
       })
     })
 
-    describe('delete completed', () => {
+    describe('delete done', () => {
       test('Should return 403 without accessToken', async () => {
-        await request(app).delete('/api/todos-completed').send().expect(403)
+        await request(app).delete('/api/todos-done').send().expect(403)
       })
 
       test('Should return 204 on delete', async () => {
@@ -108,7 +108,7 @@ describe('Todos Routes', () => {
         await todosCollection.insertOne(todo)
 
         await request(app)
-          .delete('/api/todos-completed')
+          .delete('/api/todos-done')
           .set('x-access-token', accessToken)
           .send()
           .expect(204)
@@ -124,7 +124,7 @@ describe('Todos Routes', () => {
           .put('/api/todos')
           .send({
             id: result.ops[0]._id,
-            completed: true,
+            done: true,
             text: 'new text'
           })
           .expect(403)
@@ -140,7 +140,7 @@ describe('Todos Routes', () => {
           .set('x-access-token', accessToken)
           .send({
             id: result.ops[0]._id,
-            completed: true,
+            done: true,
             text: 'new text'
           })
           .expect(200)
@@ -154,7 +154,7 @@ describe('Todos Routes', () => {
           .set('x-access-token', accessToken)
           .send({
             id: '60480d9b39bab84bf07eac95',
-            completed: true,
+            done: true,
             text: 'new text'
           })
           .expect(404)

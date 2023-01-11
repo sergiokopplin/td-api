@@ -1,4 +1,4 @@
-export const deleteCompletedTodosPath = {
+export const deleteDoneTodosPath = {
   delete: {
     tags: ['todos'],
     security: [

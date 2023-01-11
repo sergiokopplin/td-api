@@ -4,7 +4,7 @@ import {
   loadTodosPath,
   updateTodoPath,
   deleteTodoPath,
-  deleteCompletedTodosPath
+  deleteDoneTodosPath
 } from './todos'
 
 export const todosPath = {
@@ -17,7 +17,7 @@ export const todosPath = {
     ...loadTodoPath,
     ...deleteTodoPath
   },
-  '/todos-completed': {
-    ...deleteCompletedTodosPath
+  '/todos-done': {
+    ...deleteDoneTodosPath
   }
 }
