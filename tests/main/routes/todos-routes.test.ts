@@ -21,6 +21,7 @@ const mockAccessToken = async (): Promise<string> => {
   const accessToken = sign({ id }, env.jwtSecret)
   await accountCollection.updateOne(
     {
+
       _id: id
     },
     {
@@ -68,7 +69,8 @@ describe('Todos Routes', () => {
           .set('x-access-token', accessToken)
           .send({
             title: faker.random.words(3),
-            currentDate: new Date()
+            currentDate: new Date(),
+            workspaceId: faker.random.numeric(6)
           })
           .expect(201)
       })

@@ -10,6 +10,6 @@ export namespace AddTodoRepository {
   export interface Params {
     title: string
     currentDate?: Date
-    accountId: string
+    workspaceId: string
   }
 }

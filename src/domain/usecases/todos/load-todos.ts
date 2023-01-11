@@ -1,7 +1,7 @@
 import { Todo } from '@/domain/models'
 
 export interface LoadTodos {
-  loadAll: (accountId: string) => Promise<LoadTodos.Result>
+  loadAll: (workspaceId: string) => Promise<LoadTodos.Result>
 }
 
 export namespace LoadTodos {

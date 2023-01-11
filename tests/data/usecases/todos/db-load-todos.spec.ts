@@ -21,7 +21,7 @@ const makeSut = (): SutTypes => {
 
 const mockRequest = (): DbLoadTodos.Param => {
   return {
-    accountId: faker.datatype.uuid()
+    workspaceId: faker.datatype.uuid()
   }
 }
 
@@ -29,13 +29,13 @@ describe('DbLoadTodos', () => {
   test('Should throw if LoadTodosRepositorySpy throws', async () => {
     const { sut, loadTodosRepositorySpy } = makeSut()
     jest.spyOn(loadTodosRepositorySpy, 'loadAll').mockImplementationOnce(throwError)
-    const promise = sut.loadAll(mockRequest().accountId)
+    const promise = sut.loadAll(mockRequest().workspaceId)
     await expect(promise).rejects.toThrow()
   })
 
   test('Should return an todo list if it succeeds', async () => {
     const { sut, loadTodosRepositorySpy } = makeSut()
-    const response = await sut.loadAll(mockRequest().accountId)
+    const response = await sut.loadAll(mockRequest().workspaceId)
     expect(response).toBe(loadTodosRepositorySpy.result)
   })
 })

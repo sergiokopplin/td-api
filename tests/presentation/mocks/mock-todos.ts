@@ -12,7 +12,7 @@ import {
 
 const mockTodo = (): Todo => ({
   id: faker.datatype.uuid(),
-  accountId: faker.datatype.uuid(),
+  workspaceId: faker.random.numeric(6),
   title: faker.random.words(3),
   completed: false,
   currentDate: new Date()

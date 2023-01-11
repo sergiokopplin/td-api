@@ -29,15 +29,15 @@ implements
     return MongoHelper.mapId(result.ops[0])
   }
 
-  async delete (id: string, accountId: string): Promise<void> {
+  async delete (id: string, workspaceId: string): Promise<void> {
     const collection = await MongoHelper.getCollection('todos')
-    await collection.deleteOne({ _id: new ObjectId(id), accountId })
+    await collection.deleteOne({ _id: new ObjectId(id), workspaceId })
   }
 
-  async deleteCompleted (accountId: string): Promise<void> {
+  async deleteCompleted (workspaceId: string): Promise<void> {
     const collection = await MongoHelper.getCollection('todos')
     await collection.deleteMany({
-      accountId,
+      workspaceId,
       completed: true
     })
   }
@@ -52,9 +52,9 @@ implements
     return result.value && MongoHelper.mapId(result.value)
   }
 
-  async loadAll (accountId: string): Promise<LoadTodosRepository.Result[]> {
+  async loadAll (workspaceId: string): Promise<LoadTodosRepository.Result[]> {
     const collection = await MongoHelper.getCollection('todos')
-    const result = collection.find({ accountId })
+    const result = collection.find({ workspaceId })
     const list = await result.toArray()
     return result && list.map(item => MongoHelper.mapId(item))
   }
@@ -63,7 +63,7 @@ implements
     const collection = await MongoHelper.getCollection('todos')
     const result = await collection.findOne({
       _id: new ObjectId(todo.id),
-      accountId: todo.accountId
+      workspaceId: todo.workspaceId
     })
     return result && MongoHelper.mapId(result)
   }

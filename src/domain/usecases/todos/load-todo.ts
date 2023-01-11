@@ -7,7 +7,7 @@ export interface LoadTodo {
 export namespace LoadTodo {
   export interface Param {
     id: string
-    accountId: string
+    workspaceId: string
   }
 
   export type Result = Todo

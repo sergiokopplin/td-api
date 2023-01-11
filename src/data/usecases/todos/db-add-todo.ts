@@ -8,7 +8,7 @@ export class DbAddTodo implements AddTodo {
     return await this.addTodoRepository.add({
       title: todo.title,
       currentDate: todo.currentDate,
-      accountId: todo.accountId
+      workspaceId: todo.workspaceId
     })
   }
 }

@@ -7,7 +7,7 @@ export class DeleteCompletedTodosController implements Controller {
 
   async handle (request: DeleteCompletedTodosController.Request): Promise<HttpResponse> {
     try {
-      await this.deleteCompletedTodos.delete(request.accountId)
+      await this.deleteCompletedTodos.delete(request.workspaceId)
       return noResult()
     } catch (error) {
       return serverError(error)
@@ -17,6 +17,6 @@ export class DeleteCompletedTodosController implements Controller {
 
 export namespace DeleteCompletedTodosController {
   export interface Request {
-    accountId: string
+    workspaceId: string
   }
 }
