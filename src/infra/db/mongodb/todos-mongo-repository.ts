@@ -8,6 +8,7 @@ import {
   LoadTodoRepository
 } from '@/data/protocols'
 import { MongoHelper, RepositoryHelper } from '@/infra/db'
+import { TodoId, TodoWorkspacesId } from '@/domain/models'
 
 export class TodosMongoRepository
 implements
@@ -29,12 +30,12 @@ implements
     return MongoHelper.mapId(result.ops[0])
   }
 
-  async delete (id: string, workspacesId: number): Promise<void> {
+  async delete (id: TodoId, workspacesId: TodoWorkspacesId): Promise<void> {
     const collection = await MongoHelper.getCollection('todos')
     await collection.deleteOne({ _id: new ObjectId(id), workspacesId })
   }
 
-  async deleteDone (workspacesId: number): Promise<void> {
+  async deleteDone (workspacesId: TodoWorkspacesId): Promise<void> {
     const collection = await MongoHelper.getCollection('todos')
     await collection.deleteMany({
       workspacesId,
@@ -52,14 +53,14 @@ implements
     return result.value && MongoHelper.mapId(result.value)
   }
 
-  async loadAll (workspacesId: number): Promise<LoadTodosRepository.Result[]> {
+  async loadAll (workspacesId: TodoWorkspacesId): Promise<LoadTodosRepository.Result[]> {
     const collection = await MongoHelper.getCollection('todos')
     const result = collection.find({ workspacesId })
     const list = await result.toArray()
     return result && list.map(item => MongoHelper.mapId(item))
   }
 
-  async load (todo: LoadTodoRepository.Param): Promise<LoadTodoRepository.Result> {
+  async load (todo: LoadTodoRepository.Params): Promise<LoadTodoRepository.Result> {
     const collection = await MongoHelper.getCollection('todos')
     const result = await collection.findOne({
       _id: new ObjectId(todo.id),

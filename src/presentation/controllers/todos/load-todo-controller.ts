@@ -1,3 +1,4 @@
+import { Todo } from '@/domain/models'
 import { LoadTodo } from '@/domain/usecases'
 import { badRequestError, ok, serverError } from '@/presentation/helpers'
 import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
@@ -19,8 +20,8 @@ export class LoadTodoController implements Controller {
   }
 }
 
+type LoadTodoControllerRequest = Pick<Todo, 'id'>
+
 export namespace LoadTodoController {
-  export interface Request {
-    id: string
-  }
+  export type Request = LoadTodoControllerRequest
 }

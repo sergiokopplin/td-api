@@ -1,4 +1,5 @@
 import { UpdateTodo } from '@/domain/usecases'
+import { Todo } from '@/domain/models'
 import { badRequestError, ok, serverError, notFoundError } from '@/presentation/helpers'
 import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
 
@@ -22,10 +23,8 @@ export class UpdateTodoController implements Controller {
   }
 }
 
+type UpdateTodoControllerRequest = Pick<Todo, 'id' | 'text' | 'done'>
+
 export namespace UpdateTodoController {
-  export interface Request {
-    id: string
-    text: string
-    done: boolean
-  }
+  export type Request = UpdateTodoControllerRequest
 }

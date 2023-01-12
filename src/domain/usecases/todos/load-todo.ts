@@ -1,14 +1,12 @@
 import { Todo } from '@/domain/models'
 
 export interface LoadTodo {
-  load: (todo: LoadTodo.Param) => Promise<LoadTodo.Result>
+  load: (todo: LoadTodo.Params) => Promise<LoadTodo.Result>
 }
 
-export namespace LoadTodo {
-  export interface Param {
-    id: string
-    workspacesId: number
-  }
+type LoadTodoParams = Pick<Todo, 'id' | 'workspacesId'>
 
+export namespace LoadTodo {
+  export type Params = LoadTodoParams
   export type Result = Todo
 }

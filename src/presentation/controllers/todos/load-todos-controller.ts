@@ -1,3 +1,4 @@
+import { Todo } from '@/domain/models'
 import { LoadTodos } from '@/domain/usecases'
 import { ok, serverError } from '@/presentation/helpers'
 import { Controller, HttpResponse } from '@/presentation/protocols'
@@ -15,8 +16,8 @@ export class LoadTodosController implements Controller {
   }
 }
 
+type LoadTodosControllerRequest = Pick<Todo, 'workspacesId'>
+
 export namespace LoadTodosController {
-  export interface Request {
-    workspacesId: number
-  }
+  export type Request = LoadTodosControllerRequest
 }

@@ -7,7 +7,7 @@ import {
   UpdateTodoRepository,
   LoadTodoRepository
 } from '@/data/protocols'
-import { Todo } from '@/domain/models'
+import { Todo, TodoCurrentDate, TodoText, TodoId } from '@/domain/models'
 
 const mockTodo: Todo = {
   id: faker.datatype.uuid(),
@@ -18,8 +18,8 @@ const mockTodo: Todo = {
 }
 
 export class AddTodoRepositorySpy implements AddTodoRepository {
-  currentDate: Date
-  text: string
+  currentDate: TodoCurrentDate
+  text: TodoText
   result = mockTodo
 
   async add ({
@@ -33,9 +33,9 @@ export class AddTodoRepositorySpy implements AddTodoRepository {
 }
 
 export class DeleteTodoRepositorySpy implements DeleteTodoRepository {
-  id: string
+  id: TodoId
 
-  async delete (id: string): Promise<void> {
+  async delete (id: TodoId): Promise<void> {
     this.id = id
   }
 
@@ -71,7 +71,7 @@ export class LoadTodoRepositorySpy implements LoadTodoRepository {
   id = faker.datatype.uuid()
   result = mockTodo
 
-  async load (todo: LoadTodoRepository.Param): Promise<LoadTodoRepository.Result> {
+  async load (todo: LoadTodoRepository.Params): Promise<LoadTodoRepository.Result> {
     this.id = todo.id
     return this.result
   }

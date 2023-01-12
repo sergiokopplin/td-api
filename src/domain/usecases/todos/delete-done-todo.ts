@@ -1,3 +1,5 @@
+import { TodoWorkspacesId } from '@/domain/models'
+
 export interface DeleteDoneTodos {
-  delete: (workspacesId: number) => Promise<void>
+  delete: (workspacesId: TodoWorkspacesId) => Promise<void>
 }

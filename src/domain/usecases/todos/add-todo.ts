@@ -4,12 +4,9 @@ export interface AddTodo {
   add: (todo: AddTodo.Params) => Promise<AddTodo.Result>
 }
 
+type AddTodoParams = Pick<Todo, 'text' | 'currentDate' | 'workspacesId'>
+
 export namespace AddTodo {
   export type Result = Todo
-
-  export interface Params {
-    text: string
-    currentDate: Date
-    workspacesId: number
-  }
+  export type Params = AddTodoParams
 }

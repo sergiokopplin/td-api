@@ -4,12 +4,9 @@ export interface AddTodoRepository {
   add: (todo: AddTodoRepository.Params) => Promise<AddTodoRepository.Result>
 }
 
+type AddTodoRepositoryParams = Pick<Todo, 'text' | 'currentDate' | 'workspacesId'>
+
 export namespace AddTodoRepository {
   export type Result = Todo
-
-  export interface Params {
-    text: string
-    currentDate: Date
-    workspacesId: number
-  }
+  export type Params = AddTodoRepositoryParams
 }

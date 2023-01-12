@@ -1,3 +1,4 @@
+import { Todo } from '@/domain/models'
 import { DeleteTodo } from '@/domain/usecases'
 import { badRequestError, serverError, noResult } from '@/presentation/helpers'
 import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
@@ -19,8 +20,8 @@ export class DeleteTodoController implements Controller {
   }
 }
 
+type DeleteTodoControllerRequest = Pick<Todo, 'id'>
+
 export namespace DeleteTodoController {
-  export interface Request {
-    id: string
-  }
+  export type Request = DeleteTodoControllerRequest
 }

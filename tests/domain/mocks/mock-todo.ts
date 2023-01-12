@@ -19,7 +19,7 @@ export const mockAddTodoParams = (): AddTodo.Params => ({
   workspacesId
 })
 export const mockDeleteTodoParams = (): DeleteTodo.Params => ({ id, workspacesId })
-export const mockLoadTodoParams = (): LoadTodo.Param => ({ id, workspacesId })
+export const mockLoadTodoParams = (): LoadTodo.Params => ({ id, workspacesId })
 export const mockUpdateTodoParams = (): UpdateTodo.Params => ({
   text,
   done,

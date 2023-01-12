@@ -1,3 +1,4 @@
+import { Todo } from '@/domain/models'
 import { DeleteDoneTodos } from '@/domain/usecases'
 import { serverError, noResult } from '@/presentation/helpers'
 import { Controller, HttpResponse } from '@/presentation/protocols'
@@ -15,8 +16,8 @@ export class DeleteDoneTodosController implements Controller {
   }
 }
 
+type DeleteDoneTodosControllerRequest = Pick<Todo, 'workspacesId'>
+
 export namespace DeleteDoneTodosController {
-  export interface Request {
-    workspacesId: number
-  }
+  export type Request = DeleteDoneTodosControllerRequest
 }

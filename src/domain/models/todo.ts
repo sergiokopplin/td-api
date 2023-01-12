@@ -1,7 +1,12 @@
+export type TodoId = string
+export type TodoCurrentDate = Date
+export type TodoText = string
+export type TodoWorkspacesId = number
+
 export interface Todo {
-  id: string
-  text: string
+  currentDate: TodoCurrentDate
   done: boolean
-  currentDate: Date
-  workspacesId: number
+  id: TodoId
+  text: TodoText
+  workspacesId: TodoWorkspacesId
 }

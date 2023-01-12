@@ -19,7 +19,7 @@ const makeSut = (): SutTypes => {
   }
 }
 
-const mockRequest = (): DbLoadTodos.Param => {
+const mockRequest = (): DbLoadTodos.Params => {
   return {
     workspacesId: faker.datatype.number(6)
   }
