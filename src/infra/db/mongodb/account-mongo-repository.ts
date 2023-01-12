@@ -5,7 +5,7 @@ import {
   LoadAccountByTokenRepository,
   UpdateAccessTokenRepository
 } from '@/data/protocols'
-import { AccountEmail } from '@/domain/models'
+import { AccountAccessToken, AccountEmail, AccountId, AccountRole } from '@/domain/models'
 import { MongoHelper } from '@/infra/db'
 
 export class AccountMongoRepository
@@ -42,7 +42,7 @@ implements
     return result && MongoHelper.mapId(result)
   }
 
-  async updateAccessToken (id: string, token: string): Promise<void> {
+  async updateAccessToken (id: AccountId, token: AccountAccessToken): Promise<void> {
     const collection = await MongoHelper.getCollection('accounts')
     await collection.updateOne(
       {
@@ -56,7 +56,7 @@ implements
     )
   }
 
-  async loadByToken (token: string, role?: string): Promise<LoadAccountByTokenRepository.Result> {
+  async loadByToken (token: AccountAccessToken, role?: AccountRole): Promise<LoadAccountByTokenRepository.Result> {
     const accountCollection = await MongoHelper.getCollection('accounts')
     const account = await accountCollection.findOne(
       {

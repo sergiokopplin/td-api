@@ -1,5 +1,7 @@
+import { AccountAccessToken, AccountRole } from '@/domain/models'
+
 export interface LoadAccountByTokenRepository {
-  loadByToken: (token: string, role?: string) => Promise<LoadAccountByTokenRepository.Result>
+  loadByToken: (accessToken: AccountAccessToken, role?: AccountRole) => Promise<LoadAccountByTokenRepository.Result>
 }
 
 export namespace LoadAccountByTokenRepository {

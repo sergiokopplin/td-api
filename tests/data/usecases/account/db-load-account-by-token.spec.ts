@@ -3,6 +3,7 @@ import { faker } from '@faker-js/faker'
 import { DbLoadAccountByToken } from '@/data/usecases'
 import { DecrypterSpy, LoadAccountByTokenRepositorySpy } from '@/tests/data/mocks'
 import { throwError } from '@/tests/presentation/mocks'
+import { AccountRole, AccountAccessToken } from '@/domain/models'
 
 interface SutTypes {
   sut: DbLoadAccountByToken
@@ -21,8 +22,8 @@ const makeSut = (): SutTypes => {
   }
 }
 
-let token: string
-let role: string
+let token: AccountAccessToken
+let role: AccountRole
 
 describe('DbLoadAccountByToken Usecase', () => {
   beforeEach(() => {

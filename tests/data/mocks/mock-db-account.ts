@@ -7,7 +7,7 @@ import {
   LoadAccountByTokenRepository,
   UpdateAccessTokenRepository
 } from '@/data/protocols'
-import { Account, AccountEmail } from '@/domain/models'
+import { Account, AccountEmail, AccountId, AccountRole, AccountAccessToken } from '@/domain/models'
 
 export class CheckAccountByEmailRepositorySpy implements CheckAccountByEmailRepository {
   email: AccountEmail
@@ -44,13 +44,13 @@ export class LoadAccountByEmailRepositorySpy implements LoadAccountByEmailReposi
 }
 
 export class LoadAccountByTokenRepositorySpy implements LoadAccountByTokenRepository {
-  token: string
-  role: string
+  token: AccountAccessToken
+  role: AccountRole
   result = {
     id: faker.datatype.uuid()
   }
 
-  async loadByToken (token: string, role?: string): Promise<LoadAccountByTokenRepository.Result> {
+  async loadByToken (token: AccountAccessToken, role?: AccountRole): Promise<LoadAccountByTokenRepository.Result> {
     this.token = token
     this.role = role
     return this.result
@@ -58,10 +58,10 @@ export class LoadAccountByTokenRepositorySpy implements LoadAccountByTokenReposi
 }
 
 export class UpdateAccessTokenRepositorySpy implements UpdateAccessTokenRepository {
-  id: string
-  token: string
+  id: AccountId
+  token: AccountAccessToken
 
-  async updateAccessToken (id: string, token: string): Promise<void> {
+  async updateAccessToken (id: AccountId, token: AccountAccessToken): Promise<void> {
     this.id = id
     this.token = token
   }

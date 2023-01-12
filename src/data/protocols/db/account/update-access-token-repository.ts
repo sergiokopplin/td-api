@@ -1,3 +1,5 @@
+import { AccountAccessToken, AccountId } from '@/domain/models'
+
 export interface UpdateAccessTokenRepository {
-  updateAccessToken: (id: string, token: string) => Promise<void>
+  updateAccessToken: (id: AccountId, token: AccountAccessToken) => Promise<void>
 }
