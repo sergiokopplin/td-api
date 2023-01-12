@@ -8,8 +8,7 @@ Body
 {
   "text": "teste",
   "currentDate": "2023-01-06",
-  "done": false,
-  "list_id": null
+  "done": false
 }
 ```
 
@@ -18,11 +17,11 @@ Response
 ```json
 {
   "todo": {
-    "current_date": "2023-01-11",
+    "currentDate": "2023-01-11",
     "done": false,
     "id": 161781748,
     "text": "asdasdasd",
-    "workspace_id": 785437,
+    "workspaceId": 785437,
     ...
   }
 }
@@ -81,7 +80,7 @@ Response
       "list": null,
       "position": 0,
       "text": "teste",
-      "workspace_id": 785437
+      "workspaceId": 785437
     },
     {
       "currentDate": "2023-01-07",
@@ -90,7 +89,7 @@ Response
       "list": null,
       "position": 0,
       "text": "Add 'every day' to the end of a to-do and it will appear teste",
-      "workspace_id": 785437
+      "workspaceId": 785437
     },
     {
       "currentDate": "2023-01-13",
@@ -99,7 +98,7 @@ Response
       "list": null,
       "position": 0,
       "text": "teste",
-      "workspace_id": 785437
+      "workspaceId": 785437
     }
   ]
 }
@@ -120,7 +119,7 @@ Response
     "done": false,
     "done_updated_at": null,
     "id": 161240878,
-    "list_id": null,
+    "listId": null,
     "position": 0,
     "position_updated_at": null,
     "recurring_todo": {
@@ -132,14 +131,14 @@ Response
       "text": "Add 'every day' to the end of a to-do and it will appear",
       "updated_at": "2023-01-07T00:56:50",
       "uuid": "d82fd6dd-3759-4187-be9f-d5615196a35d",
-      "workspace_id": 785437
+      "workspaceId": 785437
     },
     "recurring_todo_id": 964962,
     "text": "Add 'every day' to the end of a to-do and it will appear",
     "text_updated_at": null,
     "updated_at": "2023-01-07T00:56:50",
     "uuid": "b307c507-0e6c-4bac-b6e9-9f6e0b2a8452",
-    "workspace_id": 785437
+    "workspaceId": 785437
   },
   {
     "cid": null,
@@ -150,7 +149,7 @@ Response
     "done": false,
     "done_updated_at": null,
     "id": 161240879,
-    "list_id": null,
+    "listId": null,
     "position": 0,
     "position_updated_at": null,
     "recurring_todo": {
@@ -162,14 +161,14 @@ Response
       "text": "Add 'every day' to the end of a to-do and it will appear",
       "updated_at": "2023-01-07T00:56:50",
       "uuid": "d82fd6dd-3759-4187-be9f-d5615196a35d",
-      "workspace_id": 785437
+      "workspaceId": 785437
     },
     "recurring_todo_id": 964962,
     "text": "Add 'every day' to the end of a to-do and it will appear",
     "text_updated_at": null,
     "updated_at": "2023-01-07T00:56:50",
     "uuid": "4d073ae3-45db-4290-ba09-1512cd9aa0f3",
-    "workspace_id": 785437
+    "workspaceId": 785437
   },
   {
     "cid": null,
@@ -180,7 +179,7 @@ Response
     "done": false,
     "done_updated_at": null,
     "id": 161240880,
-    "list_id": null,
+    "listId": null,
     "position": 0,
     "position_updated_at": null,
     "recurring_todo": {
@@ -192,14 +191,14 @@ Response
       "text": "Add 'every day' to the end of a to-do and it will appear",
       "updated_at": "2023-01-07T00:56:50",
       "uuid": "d82fd6dd-3759-4187-be9f-d5615196a35d",
-      "workspace_id": 785437
+      "workspaceId": 785437
     },
     "recurring_todo_id": 964962,
     "text": "Add 'every day' to the end of a to-do and it will appear",
     "text_updated_at": null,
     "updated_at": "2023-01-07T00:56:50",
     "uuid": "c23d679a-f3af-440e-9d19-5aa2d864ccea",
-    "workspace_id": 785437
+    "workspaceId": 785437
   },
   {
     "cid": null,
@@ -210,7 +209,7 @@ Response
     "done": false,
     "done_updated_at": null,
     "id": 161240881,
-    "list_id": null,
+    "listId": null,
     "position": 0,
     "position_updated_at": null,
     "recurring_todo": {
@@ -222,14 +221,14 @@ Response
       "text": "Add 'every day' to the end of a to-do and it will appear",
       "updated_at": "2023-01-07T00:56:50",
       "uuid": "d82fd6dd-3759-4187-be9f-d5615196a35d",
-      "workspace_id": 785437
+      "workspaceId": 785437
     },
     "recurring_todo_id": 964962,
     "text": "Add 'every day' to the end of a to-do and it will appear",
     "text_updated_at": null,
     "updated_at": "2023-01-07T00:56:50",
     "uuid": "1743dab5-973b-4de3-a43f-f1fe401fdbb5",
-    "workspace_id": 785437
+    "workspaceId": 785437
   }
 ]
 ```

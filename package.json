@@ -23,6 +23,7 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test": "jest --passWithNoTests --no-cache --maxWorkers=4",
+    "test:watch": "npm run test -- --watch",
     "up": "npm run build && docker-compose up -d",
     "prepare": "husky install"
   },
