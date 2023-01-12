@@ -1,3 +1,4 @@
+import { Account } from '@/domain/models'
 import { AddAccount, Authentication } from '@/domain/usecases'
 import { EmailInUseError } from '@/presentation/errors'
 import { serverError, forbiddenError, badRequestError, ok } from '@/presentation/helpers'
@@ -28,11 +29,10 @@ export class SignUpController implements Controller {
   }
 }
 
+type SignUpControllerRequest = Pick<Account, 'name' | 'email' | 'password'> & {
+  passwordConfirmation: string
+}
+
 export namespace SignUpController {
-  export interface Request {
-    name: string
-    email: string
-    password: string
-    passwordConfirmation: string
-  }
+  export type Request = SignUpControllerRequest
 }

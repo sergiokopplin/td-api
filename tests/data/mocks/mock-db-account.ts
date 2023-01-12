@@ -7,13 +7,13 @@ import {
   LoadAccountByTokenRepository,
   UpdateAccessTokenRepository
 } from '@/data/protocols'
-import { Account } from '@/domain/models'
+import { Account, AccountEmail } from '@/domain/models'
 
 export class CheckAccountByEmailRepositorySpy implements CheckAccountByEmailRepository {
-  email: string
+  email: AccountEmail
   result = false
 
-  async checkByEmail (email: string): Promise<CheckAccountByEmailRepository.Result> {
+  async checkByEmail (email: AccountEmail): Promise<CheckAccountByEmailRepository.Result> {
     this.email = email
     return this.result
   }
@@ -30,14 +30,14 @@ export class AddAccountRepositorySpy implements AddAccountRepository {
 }
 
 export class LoadAccountByEmailRepositorySpy implements LoadAccountByEmailRepository {
-  email: string
+  email: AccountEmail
   result = {
     id: faker.datatype.uuid(),
     name: faker.name.fullName(),
     password: faker.internet.password()
   }
 
-  async loadByEmail (email: string): Promise<LoadAccountByEmailRepository.Result> {
+  async loadByEmail (email: AccountEmail): Promise<LoadAccountByEmailRepository.Result> {
     this.email = email
     return this.result
   }

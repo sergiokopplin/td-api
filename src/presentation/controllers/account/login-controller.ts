@@ -1,3 +1,4 @@
+import { Account } from '@/domain/models'
 import { Authentication } from '@/domain/usecases'
 import { badRequestError, ok, serverError, unauthorized } from '@/presentation/helpers'
 import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
@@ -25,9 +26,8 @@ export class LoginController implements Controller {
   }
 }
 
+type LoginControllerRequest = Pick<Account, 'email' | 'password'>
+
 export namespace LoginController {
-  export interface Request {
-    email: string
-    password: string
-  }
+  export type Request = LoginControllerRequest
 }

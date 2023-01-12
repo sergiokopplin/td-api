@@ -1,11 +1,13 @@
+import { Account, AccountEmail, AccountId } from '@/domain/models'
+
 export interface LoadAccountByEmailRepository {
-  loadByEmail: (email: string) => Promise<LoadAccountByEmailRepository.Result>
+  loadByEmail: (email: AccountEmail) => Promise<LoadAccountByEmailRepository.Result>
+}
+
+type LoadAccountByEmailRepositoryResult = Pick<Account, 'name' | 'password'> & {
+  id: AccountId
 }
 
 export namespace LoadAccountByEmailRepository {
-  export interface Result {
-    id: string
-    name: string
-    password: string
-  }
+  export type Result = LoadAccountByEmailRepositoryResult
 }
