@@ -47,12 +47,15 @@ implements
 
   async update (todo: UpdateTodoRepository.Params): Promise<UpdateTodoRepository.Result> {
     const collection = await MongoHelper.getCollection('todos')
-    // TODO: use update instead of replace
-    await collection.findOneAndReplace(
+    await collection.updateOne(
       { _id: new ObjectId(todo.id) },
-      todo
+      {
+        $set: todo
+      }
     )
+
     const result = await this.load(todo)
+
     return result && result
   }
 
