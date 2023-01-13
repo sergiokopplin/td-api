@@ -146,9 +146,8 @@ describe('Todos Routes', () => {
         const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .patch(`/api/workspaces/${workspacesId}/todos`)
+          .patch(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}`)
           .send({
-            id: result.ops[0]._id,
             done: true,
             text: 'new text'
           })
@@ -166,10 +165,9 @@ describe('Todos Routes', () => {
         const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .patch(`/api/workspaces/${workspacesId}/todos`)
+          .patch(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}`)
           .set('x-access-token', accessToken)
           .send({
-            id: result.ops[0]._id,
             done: true,
             text: 'new text',
             currentDate: new Date()
@@ -188,10 +186,9 @@ describe('Todos Routes', () => {
         const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .patch(`/api/workspaces/${workspacesId}/todos`)
+          .patch(`/api/workspaces/${workspacesId}/todos/60480d9b39bab84bf07eac95`)
           .set('x-access-token', accessToken)
           .send({
-            id: '60480d9b39bab84bf07eac95',
             done: true,
             text: 'new text',
             currentDate: new Date()
