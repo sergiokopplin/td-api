@@ -74,6 +74,6 @@ describe('Add Todo Controller', () => {
   test('Should return 200 if ok', async () => {
     const { sut, addTodoSpy } = makeSut()
     const response = await sut.handle(mockRequest())
-    expect(response).toEqual(created({ todo: addTodoSpy.result }))
+    expect(response).toEqual(created(addTodoSpy.result))
   })
 })

@@ -37,6 +37,33 @@ Response
 }
 ```
 
+Response
+
+```json
+{
+  "todo": {
+    "cid": null,
+    "column_updated_at": null,
+    "created_at": "2023-01-13T14:32:14",
+    "current_date": "2023-01-14",
+    "deleted_at": null,
+    "done": true,
+    "done_updated_at": null,
+    "id": 162088578,
+    "list_id": null,
+    "position": 0,
+    "position_updated_at": null,
+    "recurring_todo": null,
+    "recurring_todo_id": null,
+    "text": "dfsdf",
+    "text_updated_at": null,
+    "updated_at": "2023-01-13T14:32:14",
+    "uuid": "55bd9a71-ccf3-49d2-b92a-fd4b33e11fb2",
+    "workspace_id": 785437
+  }
+}
+```
+
 ---
 
 ❌ /workspaces/785437/todos/161202560 - DELETE
