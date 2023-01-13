@@ -29,14 +29,18 @@ describe('Account Routes', () => {
       })
 
       const validPassword = 'aS1!sQ2!'
+      const name = faker.name.fullName()
       const account = {
-        name: faker.name.fullName(),
+        name,
         email: faker.internet.email(),
         password: validPassword,
         passwordConfirmation: validPassword
       }
 
-      await request(app).post('/api/signup').send(account).expect(200)
+      const response = await request(app).post('/api/signup').send(account).expect(200)
+
+      expect(response.body.name).toBe(name)
+      expect(response.body.accessToken).toBeTruthy()
     })
 
     test('Should return 403 when trying to add an existing account', async () => {
@@ -45,15 +49,23 @@ describe('Account Routes', () => {
       })
 
       const validPassword = 'aS1!sQ2!'
+      const name = faker.name.fullName()
       const account = {
-        name: faker.name.fullName(),
+        name,
         email: faker.internet.email(),
         password: validPassword,
         passwordConfirmation: validPassword
       }
 
-      await request(app).post('/api/signup').send(account)
-      await request(app).post('/api/signup').send(account).expect(403)
+      const firstResponse = await request(app).post('/api/signup').send(account)
+      const secondResponse = await request(app).post('/api/signup').send(account).expect(403)
+
+      expect(firstResponse.body.name).toBe(name)
+      expect(firstResponse.body.accessToken).toBeTruthy()
+
+      expect(secondResponse.body).toEqual({
+        error: 'The received e-mail is already in use'
+      })
     })
   })
 
@@ -65,13 +77,16 @@ describe('Account Routes', () => {
         email: 'sergio@gmail.com',
         password
       })
-      await request(app)
+      const response = await request(app)
         .post('/api/login')
         .send({
           email: 'sergio@gmail.com',
           password: '123'
         })
         .expect(200)
+
+      expect(response.body.name).toBe('Sergio')
+      expect(response.body.accessToken).toBeTruthy()
     })
 
     test('Should return 401 when bad credentials', async () => {
@@ -81,13 +96,17 @@ describe('Account Routes', () => {
         email: 'sergio@gmail.com',
         password
       })
-      await request(app)
+      const response = await request(app)
         .post('/api/login')
         .send({
           email: 'sergio@gmail.com',
           password: '321'
         })
         .expect(401)
+
+      expect(response.body).toEqual({
+        error: 'Unauthorized'
+      })
     })
   })
 })

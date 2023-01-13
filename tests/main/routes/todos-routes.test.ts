@@ -52,27 +52,39 @@ describe('Todos Routes', () => {
   describe('Todos', () => {
     describe('add', () => {
       test('Should return 403 without accessToken', async () => {
-        await request(app)
+        const response = await request(app)
           .post('/api/workspaces/123456/todos')
           .send({
             text: faker.random.words(3),
             currentDate: new Date()
           })
           .expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
       })
 
       test('Should return 201 on add', async () => {
         const accessToken = await mockAccessToken()
+        const text = faker.random.words(3)
+        const currentDate = new Date()
+        const workspacesId = faker.random.numeric(6)
 
-        await request(app)
-          .post('/api/workspaces/123456/todos')
+        const response = await request(app)
+          .post(`/api/workspaces/${workspacesId}/todos`)
           .set('x-access-token', accessToken)
           .send({
-            text: faker.random.words(3),
-            currentDate: new Date(),
-            workspacesId: faker.random.numeric(6)
+            text,
+            currentDate
           })
           .expect(201)
+
+        expect(response.body.currentDate).toBe(currentDate.toISOString())
+        expect(response.body.done).toBe(false)
+        expect(response.body.text).toBe(text)
+        expect(response.body.workspacesId).toBe(workspacesId)
+        expect(response.body.id).toBeTruthy()
       })
     })
 
@@ -81,7 +93,11 @@ describe('Todos Routes', () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
 
-        await request(app).delete(`/api/todos/${result.insertedId}`).send().expect(403)
+        const response = await request(app).delete(`/api/todos/${result.insertedId}`).send().expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
       })
 
       test('Should return 204 on delete', async () => {
@@ -89,17 +105,23 @@ describe('Todos Routes', () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
 
-        await request(app)
+        const response = await request(app)
           .delete(`/api/todos/${result.insertedId}`)
           .set('x-access-token', accessToken)
           .send()
           .expect(204)
+
+        expect(response.body).toEqual({})
       })
     })
 
     describe('delete done', () => {
       test('Should return 403 without accessToken', async () => {
-        await request(app).delete('/api/todos-done').send().expect(403)
+        const response = await request(app).delete('/api/todos-done').send().expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
       })
 
       test('Should return 204 on delete', async () => {
@@ -107,11 +129,13 @@ describe('Todos Routes', () => {
         const todo = mockAddTodoParams()
         await todosCollection.insertOne(todo)
 
-        await request(app)
+        const response = await request(app)
           .delete('/api/todos-done')
           .set('x-access-token', accessToken)
           .send()
           .expect(204)
+
+        expect(response.body).toEqual({})
       })
     })
 
@@ -120,7 +144,7 @@ describe('Todos Routes', () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
 
-        await request(app)
+        const response = await request(app)
           .put('/api/todos')
           .send({
             id: result.ops[0]._id,
@@ -128,6 +152,10 @@ describe('Todos Routes', () => {
             text: 'new text'
           })
           .expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
       })
 
       test('Should return 200 on update', async () => {
@@ -135,7 +163,7 @@ describe('Todos Routes', () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
 
-        await request(app)
+        const response = await request(app)
           .put('/api/todos')
           .set('x-access-token', accessToken)
           .send({
@@ -144,12 +172,20 @@ describe('Todos Routes', () => {
             text: 'new text'
           })
           .expect(200)
+
+        expect(response.body.done).toBe(true)
+        expect(response.body.text).toBe('new text')
+        expect(response.body.id).toBeTruthy()
+
+        // TODO: fix response
+        // expect(response.body.currentDate).toBe(currentDate.toISOString())
+        // expect(response.body.workspacesId).toBe(workspacesId)
       })
 
       test('Should return 404 when not exixting todo', async () => {
         const accessToken = await mockAccessToken()
 
-        await request(app)
+        const response = await request(app)
           .put('/api/todos')
           .set('x-access-token', accessToken)
           .send({
@@ -158,6 +194,10 @@ describe('Todos Routes', () => {
             text: 'new text'
           })
           .expect(404)
+
+        expect(response.body).toEqual({
+          error: 'Not Found'
+        })
       })
     })
 
@@ -166,7 +206,11 @@ describe('Todos Routes', () => {
         const todo = mockAddTodoParams()
 
         await todosCollection.insertOne(todo)
-        await request(app).get('/api/todos').send().expect(403)
+        const response = await request(app).get('/api/todos').send().expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
       })
 
       test('Should return 200 on load', async () => {
@@ -175,6 +219,9 @@ describe('Todos Routes', () => {
 
         await todosCollection.insertOne(todo)
         await request(app).get('/api/todos').set('x-access-token', accessToken).send().expect(200)
+
+        // TODO: fix response
+        // expect(response.body).toEqual([{}])
       })
     })
 
@@ -183,7 +230,11 @@ describe('Todos Routes', () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
 
-        await request(app).get(`/api/todos/${result.insertedId}`).send().expect(403)
+        const response = await request(app).get(`/api/todos/${result.insertedId}`).send().expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
       })
 
       test('Should return 200 on load', async () => {
@@ -196,6 +247,9 @@ describe('Todos Routes', () => {
           .set('x-access-token', accessToken)
           .send()
           .expect(200)
+
+        // TODO: fix response
+        // expect(response.body).toEqual([{}])
       })
     })
   })
