@@ -111,9 +111,7 @@ Response
 
 ---
 
-<!-- TODO: get -->
-
-❌ /workspaces/785437/search?q=teste - GET
+✅ /workspaces/785437/search?q=teste - GET
 
 ```json
 {

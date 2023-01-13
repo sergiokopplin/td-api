@@ -13,6 +13,7 @@ describe('MongoHelper', () => {
   beforeEach(async () => {
     accountsCollection = await sut.getCollection('accounts')
     await accountsCollection.deleteMany({})
+    await sut.createIndex()
   })
 
   afterAll(async () => {

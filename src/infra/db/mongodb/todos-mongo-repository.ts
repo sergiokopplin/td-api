@@ -5,6 +5,7 @@ import {
   DeleteTodoRepository,
   LoadTodoRepository,
   LoadTodosRepository,
+  SearchTodosRepository,
   UpdateTodoRepository,
   UpdateTodoStateRepository
 } from '@/data/protocols'
@@ -17,6 +18,7 @@ implements
     DeleteTodoRepository,
     LoadTodoRepository,
     LoadTodosRepository,
+    SearchTodosRepository,
     UpdateTodoRepository,
     UpdateTodoStateRepository {
   async add (todo: AddTodoRepository.Params): Promise<AddTodoRepository.Result> {
@@ -92,5 +94,20 @@ implements
       workspacesId: todo.workspacesId
     })
     return result && MongoHelper.mapId(result)
+  }
+
+  async search (params: SearchTodosRepository.Params): Promise<SearchTodosRepository.Result> {
+    const collection = await MongoHelper.getCollection('todos')
+    const result = collection.find({
+      workspacesId: params.workspacesId,
+      $text: {
+        $search: params.q
+      }
+    })
+
+    const list = await result.toArray()
+    return result && {
+      todos: list.map(item => MongoHelper.mapId(item))
+    }
   }
 }

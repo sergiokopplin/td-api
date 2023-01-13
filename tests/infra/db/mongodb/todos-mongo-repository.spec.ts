@@ -18,6 +18,7 @@ describe('TodosMongoRepository', () => {
   beforeEach(async () => {
     todosCollection = await MongoHelper.getCollection('todos')
     await todosCollection.deleteMany({})
+    await MongoHelper.createIndex()
   })
 
   afterAll(async () => {
@@ -237,6 +238,53 @@ describe('TodosMongoRepository', () => {
         workspacesId
       })
       expect(loadAllResult).toEqual(null)
+    })
+  })
+
+  describe('search()', () => {
+    test('Should return all todos', async () => {
+      const sut = makeSut()
+      const workspacesId = mockAddTodoParams().workspacesId
+      await todosCollection.insertOne({
+        text: 'first',
+        done: true,
+        workspacesId
+      })
+      await todosCollection.insertOne({
+        text: 'second text',
+        done: false,
+        workspacesId
+      })
+      await todosCollection.insertOne({
+        text: 'third text',
+        done: false,
+        workspacesId
+      })
+      await todosCollection.insertOne({
+        text: 'text',
+        done: false,
+        workspacesId: 987654
+      })
+      const searchResult = await sut.search({ q: 'text', workspacesId })
+      const count = await todosCollection.countDocuments()
+      expect(count).toBe(4)
+      expect(searchResult.todos.length).toBe(2)
+      const result = await todosCollection.find({ workspacesId }).toArray()
+      expect(result.length).toBe(3)
+    })
+
+    test('Should return empty todos', async () => {
+      const sut = makeSut()
+      const workspacesId = mockAddTodoParams().workspacesId
+      await todosCollection.insertOne({
+        text: 'second text',
+        done: false,
+        workspacesId
+      })
+      const searchResult = await sut.search({ q: 'spec', workspacesId })
+      const count = await todosCollection.countDocuments()
+      expect(count).toBe(1)
+      expect(searchResult.todos.length).toBe(0)
     })
   })
 })

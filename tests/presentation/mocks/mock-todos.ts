@@ -8,7 +8,8 @@ import {
   UpdateTodo,
   LoadTodos,
   LoadTodo,
-  UpdateTodoState
+  UpdateTodoState,
+  SearchTodos
 } from '@/domain/usecases'
 
 const mockTodo = (): Todo => ({
@@ -77,6 +78,16 @@ export class LoadTodoSpy implements LoadTodo {
   result = mockTodo()
 
   async load (): Promise<LoadTodo.Result> {
+    return this.result
+  }
+}
+
+export class SearchTodosSpy implements SearchTodos {
+  params: SearchTodos.Params
+  result = { todos: [mockTodo()] }
+
+  async search (params: SearchTodos.Params): Promise<SearchTodos.Result> {
+    this.params = params
     return this.result
   }
 }

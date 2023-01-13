@@ -6,7 +6,8 @@ import {
   LoadTodosRepository,
   UpdateTodoRepository,
   LoadTodoRepository,
-  UpdateTodoStateRepository
+  UpdateTodoStateRepository,
+  SearchTodosRepository
 } from '@/data/protocols'
 import { Todo, TodoCurrentDate, TodoText, TodoId } from '@/domain/models'
 
@@ -89,6 +90,19 @@ export class LoadTodoRepositorySpy implements LoadTodoRepository {
 
   async load (todo: LoadTodoRepository.Params): Promise<LoadTodoRepository.Result> {
     this.id = todo.id
+    return this.result
+  }
+}
+
+export class SearchTodosRepositorySpy implements SearchTodosRepository {
+  result = { todos: [mockTodo] }
+  params = {
+    q: faker.datatype.string(10),
+    workspacesId: faker.datatype.number(6)
+  }
+
+  async search (params: SearchTodosRepository.Params): Promise<SearchTodosRepository.Result> {
+    this.params = params
     return this.result
   }
 }

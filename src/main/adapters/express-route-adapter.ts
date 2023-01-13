@@ -7,6 +7,7 @@ export const expressRouteAdapt = (controller: Controller) => {
     const request = {
       ...(req.body || {}),
       ...(req.params || {}),
+      ...(req.query || {}),
       accountId: req?.accountId
     }
     const httpResponse = await controller.handle(request)

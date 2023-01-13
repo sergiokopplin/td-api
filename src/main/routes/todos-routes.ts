@@ -8,7 +8,8 @@ import {
   makeUpdateTodoController,
   makeUpdateTodoStateController,
   makeLoadTodosController,
-  makeLoadTodoController
+  makeLoadTodoController,
+  makeSearchTodosController
 } from '@/main/factories'
 import { auth } from '@/main/middlewares'
 
@@ -18,6 +19,7 @@ export const todosRoutes = (router: Router): void => {
 
   router.get('/workspaces/:workspacesId/todos', auth, expressRouteAdapt(makeLoadTodosController()))
   router.get('/workspaces/:workspacesId/todos/:id', auth, expressRouteAdapt(makeLoadTodoController()))
+  router.get('/workspaces/:workspacesId', auth, expressRouteAdapt(makeSearchTodosController()))
 
   router.patch('/workspaces/:workspacesId/todos/:id', auth, expressRouteAdapt(makeUpdateTodoController()))
 

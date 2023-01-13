@@ -17,6 +17,13 @@ export const MongoHelper = {
     this.client = null
   },
 
+  async createIndex (): Promise<void> {
+    await this.client
+      .db()
+      .collection('todos')
+      .createIndex({ text: 'text' }, { default_language: 'pt' })
+  },
+
   async getCollection (collection: string): Promise<Collection> {
     await this.connect(this.uri)
     return this.client.db().collection(collection)

@@ -43,6 +43,7 @@ describe('Todos Routes', () => {
     await todosCollection.deleteMany({})
     accountCollection = await MongoHelper.getCollection('accounts')
     await accountCollection.deleteMany({})
+    await MongoHelper.createIndex()
   })
 
   afterAll(async () => {
@@ -313,6 +314,45 @@ describe('Todos Routes', () => {
 
         expect(response.body.text).toEqual(todo.text)
         expect(response.body.workspacesId).toEqual(todo.workspacesId)
+      })
+    })
+
+    describe('search', () => {
+      test('Should return 403 without accessToken', async () => {
+        const todo = mockAddTodoParams()
+        const workspacesId = faker.random.numeric(6)
+
+        await todosCollection.insertOne(todo)
+        const response = await request(app)
+          .get(`/api/workspaces/${workspacesId}`)
+          .send()
+          .expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
+      })
+
+      test('Should return 200 on loadAll', async () => {
+        const accessToken = await mockAccessToken()
+        const todo = mockAddTodoParams()
+
+        await todosCollection.insertMany([
+          { ...todo, text: 'text' },
+          { ...todo, text: 'second text' },
+          { ...todo }
+        ])
+
+        const response = await request(app)
+          .get(`/api/workspaces/${todo.workspacesId}`)
+          .query({ q: 'text' })
+          .set('x-access-token', accessToken)
+          .send()
+          .expect(200)
+
+        expect(response.body.todos.length).toBe(2)
+        expect(response.body.todos[0].text).toEqual('text')
+        expect(response.body.todos[1].text).toEqual('second text')
       })
     })
   })
