@@ -1,6 +1,6 @@
 # TeuxDeux Api Clone
 
-/workspaces/785437/todos - POST
+✅ /workspaces/785437/todos - POST
 
 Body
 
@@ -29,7 +29,7 @@ Response
 
 ---
 
-/workspaces/785437/todos/161202560/state - POST
+❌ /workspaces/785437/todos/161202560/state - POST
 
 ```json
 {
@@ -39,11 +39,11 @@ Response
 
 ---
 
-/workspaces/785437/todos/161202560 - DELETE
+❌ /workspaces/785437/todos/161202560 - DELETE
 
 ---
 
-/workspaces/785437/todos/161240860 - PATCH
+❌ /workspaces/785437/todos/161240860 - PATCH
 
 ```json
 {
@@ -53,7 +53,7 @@ Response
 
 ---
 
-/workspaces/785437/recurring/964962 - PATCH
+❌ /workspaces/785437/recurring/964962 - PATCH
 
 ```json
 {
@@ -63,11 +63,11 @@ Response
 
 ---
 
-/workspaces/785437/recurring/964962 - DELETE
+❌ /workspaces/785437/recurring/964962 - DELETE
 
 ---
 
-/workspaces/785437/search?q=teste - GET
+❌ /workspaces/785437/search?q=teste - GET
 
 ```json
 {
@@ -106,7 +106,7 @@ Response
 
 ---
 
-/workspaces/785437/todos?since=2023-01-25&until=2023-01-28 - GET
+❌ /workspaces/785437/todos?since=2023-01-25&until=2023-01-28 - GET
 
 ```json
 [
