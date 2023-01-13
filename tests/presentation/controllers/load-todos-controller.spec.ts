@@ -22,7 +22,7 @@ const makeSut = (): SutTypes => {
 
 const mockRequest = (): LoadTodosController.Request => {
   return {
-    workspacesId: faker.datatype.number(6)
+    workspacesId: faker.random.numeric(6)
   }
 }
 
@@ -41,7 +41,7 @@ describe('Load Todos Controller', () => {
     const request = mockRequest()
     const loadAllSpy = jest.spyOn(loadTodosSpy, 'loadAll')
     await sut.handle(request)
-    expect(loadAllSpy).toHaveBeenLastCalledWith(request.workspacesId)
+    expect(loadAllSpy).toHaveBeenLastCalledWith(parseInt(request.workspacesId, 10))
   })
 
   test('Should return 200 if ok', async () => {

@@ -12,7 +12,10 @@ export class LoadTodoController implements Controller {
       if (error) {
         return badRequestError(error)
       }
-      const result = await this.loadTodo.load(request)
+      const result = await this.loadTodo.load({
+        ...request,
+        workspacesId: parseInt(request.workspacesId, 10)
+      })
       return ok(result)
     } catch (error) {
       return serverError(error)
@@ -20,7 +23,7 @@ export class LoadTodoController implements Controller {
   }
 }
 
-type LoadTodoControllerRequest = Pick<Todo, 'id'>
+type LoadTodoControllerRequest = Pick<Todo, 'id' | 'workspacesId'>
 
 export namespace LoadTodoController {
   export type Request = LoadTodoControllerRequest

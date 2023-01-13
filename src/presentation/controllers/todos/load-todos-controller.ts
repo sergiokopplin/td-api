@@ -1,4 +1,3 @@
-import { Todo } from '@/domain/models'
 import { LoadTodos } from '@/domain/usecases'
 import { ok, serverError } from '@/presentation/helpers'
 import { Controller, HttpResponse } from '@/presentation/protocols'
@@ -8,7 +7,7 @@ export class LoadTodosController implements Controller {
 
   async handle (request: LoadTodosController.Request): Promise<HttpResponse> {
     try {
-      const result = await this.loadTodos.loadAll(request.workspacesId)
+      const result = await this.loadTodos.loadAll(parseInt(request.workspacesId, 10))
       return ok(result)
     } catch (error) {
       return serverError(error)
@@ -16,7 +15,7 @@ export class LoadTodosController implements Controller {
   }
 }
 
-type LoadTodosControllerRequest = Pick<Todo, 'workspacesId'>
+interface LoadTodosControllerRequest { workspacesId: string }
 
 export namespace LoadTodosController {
   export type Request = LoadTodosControllerRequest

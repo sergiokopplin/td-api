@@ -7,7 +7,8 @@ import { LoadTodoSpy, ValidationSpy } from '@/tests/presentation/mocks'
 
 const mockRequest = (): LoadTodoController.Request => {
   return {
-    id: faker.datatype.uuid()
+    id: faker.datatype.uuid(),
+    workspacesId: faker.datatype.number(6)
   }
 }
 
@@ -67,7 +68,8 @@ describe('Load Todo Controller', () => {
     const params = mockRequest()
     await sut.handle(params)
     expect(loadSpy).toHaveBeenLastCalledWith({
-      id: params.id
+      id: params.id,
+      workspacesId: params.workspacesId
     })
   })
 
