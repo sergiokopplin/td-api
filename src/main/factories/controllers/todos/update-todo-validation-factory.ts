@@ -6,5 +6,5 @@ export const makeUpdateTodoValidation = (): ValidationComposite =>
     ...ValidationBuilder.field('id').required().objectId(new ObjectIdValidatorAdapter()).build(),
     ...ValidationBuilder.field('text').required().min(3).build(),
     ...ValidationBuilder.field('done').required().build(),
-    ...ValidationBuilder.field('currentDate').date(new DateValidatorAdapter()).build()
+    ...ValidationBuilder.field('currentDate').required().date(new DateValidatorAdapter()).build()
   ])

@@ -16,6 +16,7 @@ describe('AddTodoValidation Factory', () => {
         new RequiredFieldValidator('workspacesId'),
         new RequiredFieldValidator('text'),
         new MinLengthValidator('text', 3),
+        new RequiredFieldValidator('currentDate'),
         new DateValidator('currentDate', new DateValidatorAdapter())
       ])
     )

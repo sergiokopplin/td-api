@@ -143,9 +143,10 @@ describe('Todos Routes', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
+        const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .put('/api/todos')
+          .put(`/api/workspaces/${workspacesId}/todos`)
           .send({
             id: result.ops[0]._id,
             done: true,
@@ -162,36 +163,38 @@ describe('Todos Routes', () => {
         const accessToken = await mockAccessToken()
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
+        const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .put('/api/todos')
+          .put(`/api/workspaces/${workspacesId}/todos`)
           .set('x-access-token', accessToken)
           .send({
             id: result.ops[0]._id,
             done: true,
-            text: 'new text'
+            text: 'new text',
+            currentDate: new Date()
           })
           .expect(200)
 
         expect(response.body.done).toBe(true)
         expect(response.body.text).toBe('new text')
         expect(response.body.id).toBeTruthy()
-
-        // TODO: fix response
-        // expect(response.body.currentDate).toBe(currentDate.toISOString())
-        // expect(response.body.workspacesId).toBe(workspacesId)
+        expect(response.body.currentDate).toBeTruthy()
+        expect(response.body.workspacesId).toBeTruthy()
       })
 
       test('Should return 404 when not exixting todo', async () => {
         const accessToken = await mockAccessToken()
+        const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .put('/api/todos')
+          .put(`/api/workspaces/${workspacesId}/todos`)
           .set('x-access-token', accessToken)
           .send({
             id: '60480d9b39bab84bf07eac95',
             done: true,
-            text: 'new text'
+            text: 'new text',
+            currentDate: new Date()
           })
           .expect(404)
 

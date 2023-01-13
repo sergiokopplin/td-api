@@ -5,5 +5,5 @@ export const makeAddTodoValidation = (): ValidationComposite =>
   ValidationComposite.build([
     ...ValidationBuilder.field('workspacesId').required().build(),
     ...ValidationBuilder.field('text').required().min(3).build(),
-    ...ValidationBuilder.field('currentDate').date(new DateValidatorAdapter()).build()
+    ...ValidationBuilder.field('currentDate').required().date(new DateValidatorAdapter()).build()
   ])
