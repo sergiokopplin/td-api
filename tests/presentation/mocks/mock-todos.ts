@@ -47,7 +47,7 @@ export class DeleteDoneTodosSpy implements DeleteDoneTodos {
 
 export class UpdateTodoSpy implements UpdateTodo {
   todo: UpdateTodo.Params
-  result = mockTodo()
+  result = { todo: mockTodo() }
 
   async update (todo: UpdateTodo.Params): Promise<UpdateTodo.Result> {
     this.todo = todo

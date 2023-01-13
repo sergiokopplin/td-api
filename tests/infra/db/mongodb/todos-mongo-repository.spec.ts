@@ -116,11 +116,13 @@ describe('TodosMongoRepository', () => {
         workspacesId: mockAddTodoParams().workspacesId
       })
       expect(updateResult).toEqual({
-        id: result.ops[0]._id,
-        done: true,
-        text: 'new text',
-        currentDate: new Date('2021-03-17T23:18:04.822Z'),
-        workspacesId: mockAddTodoParams().workspacesId
+        todo: {
+          id: result.ops[0]._id,
+          done: true,
+          text: 'new text',
+          currentDate: new Date('2021-03-17T23:18:04.822Z'),
+          workspacesId: mockAddTodoParams().workspacesId
+        }
       })
     })
 

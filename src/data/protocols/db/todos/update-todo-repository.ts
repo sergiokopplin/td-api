@@ -6,5 +6,5 @@ export interface UpdateTodoRepository {
 
 export namespace UpdateTodoRepository {
   export type Params = Todo
-  export type Result = Todo
+  export interface Result { todo: Todo }
 }

@@ -56,7 +56,7 @@ implements
 
     const result = await this.load(todo)
 
-    return result && result
+    return result && { todo: result }
   }
 
   async updateState (params: UpdateTodoStateRepository.Params): Promise<UpdateTodoStateRepository.Result> {

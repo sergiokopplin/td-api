@@ -139,7 +139,7 @@ describe('Todos Routes', () => {
       })
     })
 
-    describe('update', () => {
+    describe.only('update', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
@@ -174,11 +174,11 @@ describe('Todos Routes', () => {
           })
           .expect(200)
 
-        expect(response.body.done).toBe(true)
-        expect(response.body.text).toBe('new text')
-        expect(response.body.id).toBeTruthy()
-        expect(response.body.currentDate).toBeTruthy()
-        expect(response.body.workspacesId).toBeTruthy()
+        expect(response.body.todo.done).toBe(true)
+        expect(response.body.todo.text).toBe('new text')
+        expect(response.body.todo.id).toBeTruthy()
+        expect(response.body.todo.currentDate).toBeTruthy()
+        expect(response.body.todo.workspacesId).toBeTruthy()
       })
 
       test('Should return 404 when not exixting todo', async () => {

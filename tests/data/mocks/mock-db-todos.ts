@@ -52,7 +52,7 @@ export class UpdateTodoRepositorySpy implements UpdateTodoRepository {
     done: false
   }
 
-  result = mockTodo
+  result = { todo: mockTodo }
 
   async update (params: UpdateTodoRepository.Params): Promise<UpdateTodoRepository.Result> {
     this.params = params

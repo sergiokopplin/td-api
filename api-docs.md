@@ -74,13 +74,38 @@ Response
 
 ---
 
-<!-- TODO: patch -->
-
-❌ /workspaces/785437/todos/161240860 - PATCH
+✅ /workspaces/785437/todos/161240860 - PATCH
 
 ```json
 {
   "text": "Add 'every day' to the end of a to-do and it will appear teste"
+}
+```
+
+Response
+
+```json
+{
+  "todo": {
+    "cid": null,
+    "column_updated_at": null,
+    "created_at": "2023-01-13T14:48:30",
+    "current_date": "2023-01-14",
+    "deleted_at": null,
+    "done": false,
+    "done_updated_at": null,
+    "id": 162089771,
+    "list_id": null,
+    "position": 0,
+    "position_updated_at": null,
+    "recurring_todo": null,
+    "recurring_todo_id": null,
+    "text": "gdfgdfsdfsdf",
+    "text_updated_at": null,
+    "updated_at": "2023-01-13T14:48:30",
+    "uuid": "5256613a-97c6-4ba4-bf8e-ace48e4c3b4f",
+    "workspace_id": 785437
+  }
 }
 ```
 
