@@ -12,8 +12,8 @@ export class AddTodoController implements Controller {
       if (error) {
         return badRequestError(error)
       }
-      const isValid = await this.addTodo.add(request)
-      return created(isValid)
+      const todo = await this.addTodo.add(request)
+      return created(todo)
     } catch (error) {
       return serverError(error)
     }

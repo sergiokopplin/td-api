@@ -20,7 +20,7 @@ const mockTodo: Todo = {
 export class AddTodoRepositorySpy implements AddTodoRepository {
   currentDate: TodoCurrentDate
   text: TodoText
-  result = mockTodo
+  result = { todo: mockTodo }
 
   async add ({
     currentDate,

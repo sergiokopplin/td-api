@@ -80,11 +80,11 @@ describe('Todos Routes', () => {
           })
           .expect(201)
 
-        expect(response.body.currentDate).toBe(currentDate.toISOString())
-        expect(response.body.done).toBe(false)
-        expect(response.body.text).toBe(text)
-        expect(response.body.workspacesId).toBe(workspacesId)
-        expect(response.body.id).toBeTruthy()
+        expect(response.body.todo.currentDate).toBe(currentDate.toISOString())
+        expect(response.body.todo.done).toBe(false)
+        expect(response.body.todo.id).toBeTruthy()
+        expect(response.body.todo.text).toBe(text)
+        expect(response.body.todo.workspacesId).toBe(workspacesId)
       })
     })
 

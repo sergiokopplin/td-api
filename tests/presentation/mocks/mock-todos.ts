@@ -20,7 +20,7 @@ const mockTodo = (): Todo => ({
 
 export class AddTodoSpy implements AddTodo {
   params: AddTodo.Params
-  result = mockTodo()
+  result = { todo: mockTodo() }
 
   async add (params: AddTodo.Params): Promise<AddTodo.Result> {
     this.params = params

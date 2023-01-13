@@ -27,7 +27,7 @@ implements
         todo
       )
     )
-    return MongoHelper.mapId(result.ops[0])
+    return { todo: MongoHelper.mapId(result.ops[0]) }
   }
 
   async delete (id: TodoId, workspacesId: TodoWorkspacesId): Promise<void> {

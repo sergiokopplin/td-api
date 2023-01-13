@@ -7,6 +7,6 @@ export interface AddTodoRepository {
 type AddTodoRepositoryParams = Pick<Todo, 'text' | 'currentDate' | 'workspacesId'>
 
 export namespace AddTodoRepository {
-  export type Result = Todo
+  export interface Result { todo: Todo }
   export type Params = AddTodoRepositoryParams
 }

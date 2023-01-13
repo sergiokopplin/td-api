@@ -33,10 +33,10 @@ describe('TodosMongoRepository', () => {
         workspacesId: todo.workspacesId,
         currentDate: todo.currentDate
       })
-      expect(result.id).toBeTruthy()
-      expect(result.text).toBe(todo.text)
-      expect(result.done).toBe(false)
-      expect(result.workspacesId).toBe(todo.workspacesId)
+      expect(result.todo.id).toBeTruthy()
+      expect(result.todo.text).toBe(todo.text)
+      expect(result.todo.done).toBe(false)
+      expect(result.todo.workspacesId).toBe(todo.workspacesId)
     })
 
     test('Should return correctly with optional params', async () => {
@@ -46,8 +46,8 @@ describe('TodosMongoRepository', () => {
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
         workspacesId: mockAddTodoParams().workspacesId
       })
-      expect(result.id).toBeTruthy()
-      expect(result.currentDate).toEqual(new Date('2021-03-17T23:18:04.822Z'))
+      expect(result.todo.id).toBeTruthy()
+      expect(result.todo.currentDate).toEqual(new Date('2021-03-17T23:18:04.822Z'))
     })
   })
 
