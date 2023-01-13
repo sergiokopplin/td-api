@@ -66,7 +66,7 @@ Response
 
 ---
 
-❌ /workspaces/785437/todos/161202560 - DELETE
+✅ /workspaces/785437/todos/161202560 - DELETE
 
 ---
 
@@ -77,20 +77,6 @@ Response
   "text": "Add 'every day' to the end of a to-do and it will appear teste"
 }
 ```
-
----
-
-❌ /workspaces/785437/recurring/964962 - PATCH
-
-```json
-{
-  "text": "Add 'every week'"
-}
-```
-
----
-
-❌ /workspaces/785437/recurring/964962 - DELETE
 
 ---
 
