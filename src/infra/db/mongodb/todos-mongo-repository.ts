@@ -45,12 +45,12 @@ implements
 
   async update (todo: UpdateTodoRepository.Params): Promise<UpdateTodoRepository.Result> {
     const collection = await MongoHelper.getCollection('todos')
-    const result = await collection.findOneAndReplace(
+    await collection.findOneAndReplace(
       { _id: new ObjectId(todo.id) },
-      todo,
-      { returnOriginal: false }
+      todo
     )
-    return result.value && MongoHelper.mapId(result.value)
+    const result = await this.load(todo)
+    return result && result
   }
 
   async loadAll (workspacesId: TodoWorkspacesId): Promise<LoadTodosRepository.Result[]> {
