@@ -146,7 +146,7 @@ describe('Todos Routes', () => {
         const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .put(`/api/workspaces/${workspacesId}/todos`)
+          .patch(`/api/workspaces/${workspacesId}/todos`)
           .send({
             id: result.ops[0]._id,
             done: true,
@@ -166,7 +166,7 @@ describe('Todos Routes', () => {
         const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .put(`/api/workspaces/${workspacesId}/todos`)
+          .patch(`/api/workspaces/${workspacesId}/todos`)
           .set('x-access-token', accessToken)
           .send({
             id: result.ops[0]._id,
@@ -188,7 +188,7 @@ describe('Todos Routes', () => {
         const workspacesId = faker.random.numeric(6)
 
         const response = await request(app)
-          .put(`/api/workspaces/${workspacesId}/todos`)
+          .patch(`/api/workspaces/${workspacesId}/todos`)
           .set('x-access-token', accessToken)
           .send({
             id: '60480d9b39bab84bf07eac95',
