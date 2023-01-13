@@ -137,6 +137,35 @@ describe('TodosMongoRepository', () => {
     })
   })
 
+  describe('updateState()', () => {
+    test('Should return an updated todo', async () => {
+      const sut = makeSut()
+      const todo = mockAddTodoParams()
+      const result = await todosCollection.insertOne(todo)
+      const updateStateResult = await sut.updateState({
+        id: result.ops[0]._id,
+        done: true,
+        workspacesId: mockAddTodoParams().workspacesId
+      })
+
+      expect(updateStateResult.todo.id).toBeTruthy()
+      expect(updateStateResult.todo.text).toBe(todo.text)
+      expect(updateStateResult.todo.done).toBe(true)
+      expect(updateStateResult.todo.workspacesId).toBe(todo.workspacesId)
+      expect(updateStateResult.todo.currentDate).toBeTruthy()
+    })
+
+    test('Should return empty when not existing todo to update', async () => {
+      const sut = makeSut()
+      const updateStateResult = await sut.updateState({
+        id: '60480d9b39bab84bf07eac95',
+        done: true,
+        workspacesId: mockAddTodoParams().workspacesId
+      })
+      expect(updateStateResult).toEqual(null)
+    })
+  })
+
   describe('loadAll()', () => {
     test('Should return all todos', async () => {
       const sut = makeSut()

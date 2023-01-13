@@ -1,11 +1,13 @@
-import { Todo, TodoDone } from '@/domain/models'
+import { Todo, TodoDone, TodoId, TodoWorkspacesId } from '@/domain/models'
 
 export interface UpdateTodoStateRepository {
-  update: (todo: UpdateTodoStateRepository.Params) => Promise<UpdateTodoStateRepository.Result>
+  updateState: (params: UpdateTodoStateRepository.Params) => Promise<UpdateTodoStateRepository.Result>
 }
 
 export namespace UpdateTodoStateRepository {
   export interface Params {
+    id: TodoId
+    workspacesId: TodoWorkspacesId
     done: TodoDone
   }
   export interface Result { todo: Todo }

@@ -204,6 +204,56 @@ describe('Todos Routes', () => {
       })
     })
 
+    describe('updateState', () => {
+      test('Should return 403 without accessToken', async () => {
+        const todo = mockAddTodoParams()
+        const result = await todosCollection.insertOne(todo)
+        const workspacesId = faker.random.numeric(6)
+
+        const response = await request(app)
+          .post(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}/state`)
+          .send({ done: true })
+          .expect(403)
+
+        expect(response.body).toEqual({
+          error: 'Access denied'
+        })
+      })
+
+      test('Should return 200 on update', async () => {
+        const accessToken = await mockAccessToken()
+        const todo = mockAddTodoParams()
+        const result = await todosCollection.insertOne(todo)
+
+        const response = await request(app)
+          .post(`/api/workspaces/${todo.workspacesId}/todos/${result.ops[0]._id}/state`)
+          .set('x-access-token', accessToken)
+          .send({ done: true })
+          .expect(200)
+
+        expect(response.body.todo.done).toBe(true)
+        expect(response.body.todo.text).toBeTruthy()
+        expect(response.body.todo.id).toBeTruthy()
+        expect(response.body.todo.currentDate).toBeTruthy()
+        expect(response.body.todo.workspacesId).toBe(todo.workspacesId)
+      })
+
+      test('Should return 404 when not exixting todo', async () => {
+        const accessToken = await mockAccessToken()
+        const workspacesId = faker.random.numeric(6)
+
+        const response = await request(app)
+          .post(`/api/workspaces/${workspacesId}/todos/63c192dc7329713a46b464fe/state`)
+          .set('x-access-token', accessToken)
+          .send({ done: true })
+          .expect(404)
+
+        expect(response.body).toEqual({
+          error: 'Not Found'
+        })
+      })
+    })
+
     describe('loadAll', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()

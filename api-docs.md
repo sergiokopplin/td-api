@@ -29,7 +29,7 @@ Response
 
 ---
 
-❌ /workspaces/785437/todos/161202560/state - POST
+✅ /workspaces/785437/todos/161202560/state - POST
 
 ```json
 {

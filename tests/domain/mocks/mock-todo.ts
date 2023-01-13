@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
 import { Todo } from '@/domain/models'
-import { AddTodo, DeleteTodo, UpdateTodo, LoadTodo } from '@/domain/usecases'
+import { AddTodo, DeleteTodo, UpdateTodo, LoadTodo, UpdateTodoState } from '@/domain/usecases'
 
 const mockTodo: Todo = {
   text: faker.random.words(3),
@@ -25,5 +25,10 @@ export const mockUpdateTodoParams = (): UpdateTodo.Params => ({
   done,
   id,
   currentDate,
+  workspacesId
+})
+export const mockUpdateTodoStateParams = (): UpdateTodoState.Params => ({
+  done,
+  id,
   workspacesId
 })

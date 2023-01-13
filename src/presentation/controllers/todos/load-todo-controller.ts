@@ -12,6 +12,7 @@ export class LoadTodoController implements Controller {
       if (error) {
         return badRequestError(error)
       }
+      // TODO: move to data layer
       const result = await this.loadTodo.load({
         ...request,
         workspacesId: parseInt(request.workspacesId, 10)

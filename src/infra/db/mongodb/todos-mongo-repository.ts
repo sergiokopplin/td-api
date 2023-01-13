@@ -3,9 +3,10 @@ import { ObjectId } from 'mongodb'
 import {
   AddTodoRepository,
   DeleteTodoRepository,
-  UpdateTodoRepository,
+  LoadTodoRepository,
   LoadTodosRepository,
-  LoadTodoRepository
+  UpdateTodoRepository,
+  UpdateTodoStateRepository
 } from '@/data/protocols'
 import { MongoHelper, RepositoryHelper } from '@/infra/db'
 import { TodoId, TodoWorkspacesId } from '@/domain/models'
@@ -14,9 +15,10 @@ export class TodosMongoRepository
 implements
     AddTodoRepository,
     DeleteTodoRepository,
-    UpdateTodoRepository,
+    LoadTodoRepository,
     LoadTodosRepository,
-    LoadTodoRepository {
+    UpdateTodoRepository,
+    UpdateTodoStateRepository {
   async add (todo: AddTodoRepository.Params): Promise<AddTodoRepository.Result> {
     const collection = await MongoHelper.getCollection('todos')
     const result = await collection.insertOne(
@@ -45,12 +47,32 @@ implements
 
   async update (todo: UpdateTodoRepository.Params): Promise<UpdateTodoRepository.Result> {
     const collection = await MongoHelper.getCollection('todos')
+    // TODO: use update instead of replace
     await collection.findOneAndReplace(
       { _id: new ObjectId(todo.id) },
       todo
     )
     const result = await this.load(todo)
     return result && result
+  }
+
+  async updateState (params: UpdateTodoStateRepository.Params): Promise<UpdateTodoStateRepository.Result> {
+    const collection = await MongoHelper.getCollection('todos')
+    await collection.updateOne(
+      { _id: new ObjectId(params.id) },
+      {
+        $set: {
+          done: params.done
+        }
+      }
+    )
+
+    const result = await collection.findOne({
+      _id: new ObjectId(params.id),
+      workspacesId: params.workspacesId
+    })
+
+    return result && { todo: MongoHelper.mapId(result) }
   }
 
   async loadAll (workspacesId: TodoWorkspacesId): Promise<LoadTodosRepository.Result[]> {

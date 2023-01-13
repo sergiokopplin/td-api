@@ -7,7 +7,8 @@ import {
   DeleteDoneTodos,
   UpdateTodo,
   LoadTodos,
-  LoadTodo
+  LoadTodo,
+  UpdateTodoState
 } from '@/domain/usecases'
 
 const mockTodo = (): Todo => ({
@@ -50,6 +51,16 @@ export class UpdateTodoSpy implements UpdateTodo {
 
   async update (todo: UpdateTodo.Params): Promise<UpdateTodo.Result> {
     this.todo = todo
+    return this.result
+  }
+}
+
+export class UpdateTodoStateSpy implements UpdateTodoState {
+  params: UpdateTodoState.Params
+  result = { todo: mockTodo() }
+
+  async updateState (params: UpdateTodoState.Params): Promise<UpdateTodoState.Result> {
+    this.params = params
     return this.result
   }
 }

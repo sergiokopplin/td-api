@@ -21,22 +21,22 @@ const makeSut = (): SutTypes => {
 describe('DbUpdateTodoState', () => {
   test('Should throw if UpdateTodoStateRepositorySpy throws', async () => {
     const { sut, updateTodoStateRepositorySpy } = makeSut()
-    jest.spyOn(updateTodoStateRepositorySpy, 'update').mockImplementationOnce(throwError)
-    const promise = sut.update(mockUpdateTodoParams())
+    jest.spyOn(updateTodoStateRepositorySpy, 'updateState').mockImplementationOnce(throwError)
+    const promise = sut.updateState(mockUpdateTodoParams())
     await expect(promise).rejects.toThrow()
   })
 
   test('Should call UpdateTodoStateRepositorySpy with correct params', async () => {
     const { sut, updateTodoStateRepositorySpy } = makeSut()
     const updateAccountParams = mockUpdateTodoParams()
-    await sut.update(updateAccountParams)
+    await sut.updateState(updateAccountParams)
     expect(updateTodoStateRepositorySpy.params).toBe(updateAccountParams)
   })
 
   test('Should return an todo if it succeeds', async () => {
     const { sut, updateTodoStateRepositorySpy } = makeSut()
     const updateAccountParams = mockUpdateTodoParams()
-    const response = await sut.update(updateAccountParams)
+    const response = await sut.updateState(updateAccountParams)
     expect(response).toBe(updateTodoStateRepositorySpy.result)
   })
 })

@@ -62,12 +62,14 @@ export class UpdateTodoRepositorySpy implements UpdateTodoRepository {
 
 export class UpdateTodoStateRepositorySpy implements UpdateTodoStateRepository {
   params = {
+    id: faker.datatype.uuid(),
+    workspacesId: faker.datatype.number(6),
     done: false
   }
 
   result = { todo: mockTodo }
 
-  async update (params: UpdateTodoStateRepository.Params): Promise<UpdateTodoStateRepository.Result> {
+  async updateState (params: UpdateTodoStateRepository.Params): Promise<UpdateTodoStateRepository.Result> {
     this.params = params
     return this.result
   }

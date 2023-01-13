@@ -7,6 +7,7 @@ export class LoadTodosController implements Controller {
 
   async handle (request: LoadTodosController.Request): Promise<HttpResponse> {
     try {
+      // TODO: move to data layer
       const result = await this.loadTodos.loadAll(parseInt(request.workspacesId, 10))
       return ok(result)
     } catch (error) {
