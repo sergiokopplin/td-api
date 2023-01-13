@@ -5,7 +5,8 @@ import {
   DeleteTodoRepository,
   LoadTodosRepository,
   UpdateTodoRepository,
-  LoadTodoRepository
+  LoadTodoRepository,
+  UpdateTodoStateRepository
 } from '@/data/protocols'
 import { Todo, TodoCurrentDate, TodoText, TodoId } from '@/domain/models'
 
@@ -54,6 +55,19 @@ export class UpdateTodoRepositorySpy implements UpdateTodoRepository {
   result = mockTodo
 
   async update (params: UpdateTodoRepository.Params): Promise<UpdateTodoRepository.Result> {
+    this.params = params
+    return this.result
+  }
+}
+
+export class UpdateTodoStateRepositorySpy implements UpdateTodoStateRepository {
+  params = {
+    done: false
+  }
+
+  result = { todo: mockTodo }
+
+  async update (params: UpdateTodoStateRepository.Params): Promise<UpdateTodoStateRepository.Result> {
     this.params = params
     return this.result
   }
