@@ -1,5 +1,9 @@
 # TeuxDeux Api Clone
 
+<!-- TODO: adds thunder endpoints -->
+
+---
+
 ✅ /workspaces/785437/todos - POST
 
 Body
@@ -70,6 +74,8 @@ Response
 
 ---
 
+<!-- TODO: patch -->
+
 ❌ /workspaces/785437/todos/161240860 - PATCH
 
 ```json
@@ -79,6 +85,8 @@ Response
 ```
 
 ---
+
+<!-- TODO: get -->
 
 ❌ /workspaces/785437/search?q=teste - GET
 
@@ -118,6 +126,8 @@ Response
 ```
 
 ---
+
+<!-- TODO: get -->
 
 ❌ /workspaces/785437/todos?since=2023-01-25&until=2023-01-28 - GET
 
