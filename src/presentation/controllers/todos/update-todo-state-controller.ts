@@ -12,11 +12,7 @@ export class UpdateTodoStateController implements Controller {
       if (error) {
         return badRequestError(error)
       }
-      // TODO: move to data layer
-      const result = await this.updateTodoState.updateState({
-        ...request,
-        workspacesId: parseInt(request.workspacesId, 10)
-      })
+      const result = await this.updateTodoState.updateState(request)
       if (!result) {
         return notFoundError()
       }

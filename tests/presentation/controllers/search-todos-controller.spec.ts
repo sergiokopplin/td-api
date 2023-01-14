@@ -23,7 +23,7 @@ const makeSut = (): SutTypes => {
 const mockRequest = (): SearchTodosController.Request => {
   return {
     q: faker.datatype.string(10),
-    workspacesId: faker.random.numeric(6)
+    workspacesId: faker.datatype.number(6)
   }
 }
 
@@ -44,7 +44,7 @@ describe('Search Todos Controller', () => {
     await sut.handle(request)
     expect(searchSpy).toHaveBeenLastCalledWith({
       q: request.q,
-      workspacesId: parseInt(request.workspacesId, 10)
+      workspacesId: request.workspacesId
     })
   })
 

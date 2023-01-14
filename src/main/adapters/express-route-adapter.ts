@@ -8,7 +8,8 @@ export const expressRouteAdapt = (controller: Controller) => {
       ...(req.body || {}),
       ...(req.params || {}),
       ...(req.query || {}),
-      accountId: req?.accountId
+      accountId: req?.accountId,
+      workspacesId: req?.params?.workspacesId && parseInt(req?.params?.workspacesId, 10)
     }
     const httpResponse = await controller.handle(request)
     if (httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299) {

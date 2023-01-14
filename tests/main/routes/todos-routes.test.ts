@@ -70,7 +70,7 @@ describe('Todos Routes', () => {
         const accessToken = await mockAccessToken()
         const text = faker.random.words(3)
         const currentDate = new Date()
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
           .post(`/api/workspaces/${workspacesId}/todos`)
@@ -144,7 +144,7 @@ describe('Todos Routes', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
           .patch(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}`)
@@ -163,7 +163,7 @@ describe('Todos Routes', () => {
         const accessToken = await mockAccessToken()
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
           .patch(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}`)
@@ -184,7 +184,7 @@ describe('Todos Routes', () => {
 
       test('Should return 404 when not exixting todo', async () => {
         const accessToken = await mockAccessToken()
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
           .patch(`/api/workspaces/${workspacesId}/todos/60480d9b39bab84bf07eac95`)
@@ -206,7 +206,7 @@ describe('Todos Routes', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
           .post(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}/state`)
@@ -238,7 +238,7 @@ describe('Todos Routes', () => {
 
       test('Should return 404 when not exixting todo', async () => {
         const accessToken = await mockAccessToken()
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
           .post(`/api/workspaces/${workspacesId}/todos/63c192dc7329713a46b464fe/state`)
@@ -255,7 +255,7 @@ describe('Todos Routes', () => {
     describe('loadAll', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         await todosCollection.insertOne(todo)
         const response = await request(app)
@@ -289,7 +289,7 @@ describe('Todos Routes', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()
         const result = await todosCollection.insertOne(todo)
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
           .get(`/api/workspaces/${workspacesId}/todos/${result.insertedId}`)
@@ -320,7 +320,7 @@ describe('Todos Routes', () => {
     describe('search', () => {
       test('Should return 403 without accessToken', async () => {
         const todo = mockAddTodoParams()
-        const workspacesId = faker.random.numeric(6)
+        const workspacesId = faker.datatype.number(6)
 
         await todosCollection.insertOne(todo)
         const response = await request(app)
