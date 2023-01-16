@@ -29,7 +29,8 @@
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:watch": "npm run test -- --watch",
     "test": "jest --passWithNoTests --no-cache --maxWorkers=4",
-    "up": "npm run down && npm run build && docker-compose up -d && npm run migration"
+    "up:dev": "npm run down && npm run build && docker-compose up -d && npm run migration",
+    "up": "npm run build && docker-compose up -d"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
