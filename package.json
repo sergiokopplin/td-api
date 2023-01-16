@@ -25,6 +25,7 @@
     "test": "jest --passWithNoTests --no-cache --maxWorkers=4",
     "test:watch": "npm run test -- --watch",
     "up": "npm run build && docker-compose up -d",
+    "up:logs": "npm run build && docker-compose up",
     "prepare": "husky install"
   },
   "devDependencies": {
