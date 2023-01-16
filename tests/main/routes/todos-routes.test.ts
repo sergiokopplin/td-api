@@ -17,7 +17,7 @@ const mockAccessToken = async (): Promise<string> => {
     email: 'sergio@gmail.com',
     password: '123asdqwe!@#'
   })
-  const id = res.ops[0]._id
+  const id = res.insertedId
   const accessToken = sign({ id }, env.jwtSecret)
   await accountCollection.updateOne(
     {
@@ -147,7 +147,7 @@ describe('Todos Routes', () => {
         const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
-          .patch(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}`)
+          .patch(`/api/workspaces/${workspacesId}/todos/${result.insertedId}`)
           .send({
             done: true,
             text: 'new text'
@@ -166,7 +166,7 @@ describe('Todos Routes', () => {
         const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
-          .patch(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}`)
+          .patch(`/api/workspaces/${workspacesId}/todos/${result.insertedId}`)
           .set('x-access-token', accessToken)
           .send({
             done: true,
@@ -209,7 +209,7 @@ describe('Todos Routes', () => {
         const workspacesId = faker.datatype.number(6)
 
         const response = await request(app)
-          .post(`/api/workspaces/${workspacesId}/todos/${result.ops[0]._id}/state`)
+          .post(`/api/workspaces/${workspacesId}/todos/${result.insertedId}/state`)
           .send({ done: true })
           .expect(403)
 
@@ -224,7 +224,7 @@ describe('Todos Routes', () => {
         const result = await todosCollection.insertOne(todo)
 
         const response = await request(app)
-          .post(`/api/workspaces/${todo.workspacesId}/todos/${result.ops[0]._id}/state`)
+          .post(`/api/workspaces/${todo.workspacesId}/todos/${result.insertedId}/state`)
           .set('x-access-token', accessToken)
           .send({ done: true })
           .expect(200)

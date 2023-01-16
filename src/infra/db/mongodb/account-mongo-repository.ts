@@ -7,6 +7,7 @@ import {
 } from '@/data/protocols'
 import { AccountAccessToken, AccountEmail, AccountId, AccountRole } from '@/domain/models'
 import { MongoHelper } from '@/infra/db'
+import { ObjectId } from 'mongodb'
 
 export class AccountMongoRepository
 implements
@@ -18,7 +19,7 @@ implements
   async add (account: AddAccountRepository.Params): Promise<AddAccountRepository.Result> {
     const collection = await MongoHelper.getCollection('accounts')
     const result = await collection.insertOne(account)
-    return result.ops[0] !== null
+    return result.insertedId !== null
   }
 
   async checkByEmail (email: AccountEmail): Promise<CheckAccountByEmailRepository.Result> {
@@ -46,7 +47,7 @@ implements
     const collection = await MongoHelper.getCollection('accounts')
     await collection.updateOne(
       {
-        _id: id
+        _id: new ObjectId(id)
       },
       {
         $set: {

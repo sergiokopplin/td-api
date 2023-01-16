@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { Collection } from 'mongodb'
+import { Collection, ObjectId } from 'mongodb'
 
 import { MongoHelper, TodosMongoRepository } from '@/infra/db'
 import { mockAddTodoParams } from '@/tests/domain/mocks'
@@ -59,7 +59,7 @@ describe('TodosMongoRepository', () => {
       const result = await todosCollection.insertOne(todo)
       let count = await todosCollection.countDocuments()
       expect(count).toBe(1)
-      await sut.delete(result.ops[0]._id, todo.workspacesId)
+      await sut.delete(new ObjectId(result.insertedId).toString(), todo.workspacesId)
       count = await todosCollection.countDocuments()
       expect(count).toBe(0)
     })
@@ -110,7 +110,7 @@ describe('TodosMongoRepository', () => {
       const todo = mockAddTodoParams()
       const result = await todosCollection.insertOne(todo)
       const updateResult = await sut.update({
-        id: result.ops[0]._id,
+        id: new ObjectId(result.insertedId).toString(),
         done: true,
         text: 'new text',
         currentDate: new Date('2021-03-17T23:18:04.822Z'),
@@ -118,7 +118,7 @@ describe('TodosMongoRepository', () => {
       })
       expect(updateResult).toEqual({
         todo: {
-          id: result.ops[0]._id,
+          id: result.insertedId,
           done: true,
           text: 'new text',
           currentDate: new Date('2021-03-17T23:18:04.822Z'),
@@ -146,7 +146,7 @@ describe('TodosMongoRepository', () => {
       const todo = mockAddTodoParams()
       const result = await todosCollection.insertOne(todo)
       const updateStateResult = await sut.updateState({
-        id: result.ops[0]._id,
+        id: new ObjectId(result.insertedId).toString(),
         done: true,
         workspacesId: mockAddTodoParams().workspacesId
       })
@@ -217,7 +217,7 @@ describe('TodosMongoRepository', () => {
         done: true,
         workspacesId
       })
-      const loadAllResult = await sut.load({ id: result.insertedId, workspacesId })
+      const loadAllResult = await sut.load({ id: new ObjectId(result.insertedId).toString(), workspacesId })
       expect(loadAllResult).toEqual({
         id: result.insertedId,
         text: 'first text',

@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { Collection } from 'mongodb'
+import { Collection, ObjectId } from 'mongodb'
 
 import { MongoHelper, AccountMongoRepository } from '@/infra/db'
 import { mockAddAccountParams } from '@/tests/domain/mocks'
@@ -59,11 +59,11 @@ describe('AccountMongoRepository', () => {
       const mockAccount = mockAddAccountParams()
       const sut = makeSut()
       const account = await accountCollection.insertOne({ ...mockAccount })
-      expect(account.ops[0].accessToken).toBeFalsy()
       const accessToken = faker.datatype.uuid()
-      await sut.updateAccessToken(account.ops[0]._id, accessToken)
+      const inserted = await accountCollection.findOne({ _id: account.insertedId })
+      await sut.updateAccessToken(new ObjectId(inserted._id).toString(), accessToken)
       const updatedAccount = await accountCollection.findOne({
-        _id: account.ops[0]._id
+        _id: account.insertedId
       })
       expect(updatedAccount.accessToken).toBe(accessToken)
     })
