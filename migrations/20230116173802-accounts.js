@@ -6,7 +6,8 @@ module.exports = {
         email: 'john@doe.com',
         password: '123asdqwe!@#',
         passwordConfirmation: '123asdqwe!@#',
-        accessToken: 'f8e66fdb-44f3-4b90-a88e-79961fa1d3f0'
+        accessToken:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4IiwiaWF0IjoxNjczODkzODIzfQ.mvO706nhInka2EFdlKzs_UDdLpw83CWEMfVl_DipyV8'
       },
       {
         name: 'Johnny',

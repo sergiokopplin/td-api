@@ -16,10 +16,10 @@
     "lint:fix": "./node_modules/.bin/eslint src tests --fix",
     "lint:type": "./node_modules/.bin/tsc --noEmit",
     "lint": "./node_modules/.bin/eslint src tests",
-    "migration:down": " ./node_modules/.bin/migrate-mongo down",
-    "migration:status": " ./node_modules/.bin/migrate-mongo status",
-    "migration:up": " ./node_modules/.bin/migrate-mongo up",
-    "migration": "npm run migration:down && npm run migration:up && npm run migration:status",
+    "migration:down": "./node_modules/.bin/migrate-mongo down",
+    "migration:status": "./node_modules/.bin/migrate-mongo status",
+    "migration:up": "./node_modules/.bin/migrate-mongo up",
+    "migration": "npm run migration:up && npm run migration:status",
     "prepare": "husky install",
     "qa": "npm run lint:type && npm run lint:fix && npm run test",
     "start": "node dist/main/server.js",
@@ -29,8 +29,7 @@
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:watch": "npm run test -- --watch",
     "test": "jest --passWithNoTests --no-cache --maxWorkers=4",
-    "up:dev": "npm run down && npm run build && docker-compose up -d && npm run migration",
-    "up": "npm run build && docker-compose up -d"
+    "up": "npm run build && docker-compose up"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",

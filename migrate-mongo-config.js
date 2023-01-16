@@ -1,6 +1,6 @@
 const config = {
   mongodb: {
-    url: 'mongodb://localhost:27017',
+    url: 'mongodb://0.0.0.0:27017',
     databaseName: 'todo-api',
     options: {
       useNewUrlParser: true,
