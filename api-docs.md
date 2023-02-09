@@ -1,6 +1,5 @@
 # TeuxDeux Api Clone
 
-<!-- TODO: adds thunder endpoints -->
 <!-- TODO: adds database migration -->
 
 ---

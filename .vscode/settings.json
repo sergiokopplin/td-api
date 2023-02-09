@@ -3,7 +3,5 @@
     "source.fixAll": true,
     "source.fixAll.eslint": true
   },
-  "editor.formatOnSave": true,
-  "thunder-client.saveToWorkspace": true,
-  "thunder-client.workspaceRelativePath": "thunder-tests"
+  "editor.formatOnSave": true
 }
