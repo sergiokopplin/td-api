@@ -1,6 +1,6 @@
-import { DeleteTodoRepository } from '@/data/protocols'
-import { TodoWorkspacesId } from '@/domain/models'
-import { DeleteDoneTodos } from '@/domain/usecases'
+import { type DeleteTodoRepository } from '@/data/protocols'
+import { type TodoWorkspacesId } from '@/domain/models'
+import { type DeleteDoneTodos } from '@/domain/usecases'
 
 export class DbDeleteDoneTodos implements DeleteDoneTodos {
   constructor (private readonly deleteTodoRepository: DeleteTodoRepository) {}

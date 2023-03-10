@@ -1,7 +1,7 @@
-import { UpdateTodoState } from '@/domain/usecases'
-import { Todo } from '@/domain/models'
+import { type UpdateTodoState } from '@/domain/usecases'
+import { type Todo } from '@/domain/models'
 import { badRequestError, ok, serverError, notFoundError } from '@/presentation/helpers'
-import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
+import { type Controller, type HttpResponse, type Validation } from '@/presentation/protocols'
 
 export class UpdateTodoStateController implements Controller {
   constructor (private readonly validation: Validation, private readonly updateTodoState: UpdateTodoState) {}

@@ -1,6 +1,6 @@
 import { hash } from 'bcrypt'
 import { faker } from '@faker-js/faker'
-import { Collection } from 'mongodb'
+import { type Collection } from 'mongodb'
 import request from 'supertest'
 
 import { MongoHelper } from '@/infra/db'

@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
-import { Todo } from '@/domain/models'
-import { AddTodo, DeleteTodo, UpdateTodo, LoadTodo, UpdateTodoState } from '@/domain/usecases'
+import { type Todo } from '@/domain/models'
+import { type AddTodo, type DeleteTodo, type UpdateTodo, type LoadTodo, type UpdateTodoState } from '@/domain/usecases'
 
 const mockTodo: Todo = {
   text: faker.random.words(3),

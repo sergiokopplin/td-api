@@ -1,7 +1,7 @@
-import { Todo } from '@/domain/models'
-import { AddTodo } from '@/domain/usecases'
+import { type Todo } from '@/domain/models'
+import { type AddTodo } from '@/domain/usecases'
 import { badRequestError, created, serverError } from '@/presentation/helpers'
-import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
+import { type Controller, type HttpResponse, type Validation } from '@/presentation/protocols'
 
 export class AddTodoController implements Controller {
   constructor (private readonly validation: Validation, private readonly addTodo: AddTodo) {}

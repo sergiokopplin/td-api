@@ -1,5 +1,5 @@
-import { DeleteTodoRepository } from '@/data/protocols'
-import { DeleteTodo } from '@/domain/usecases'
+import { type DeleteTodoRepository } from '@/data/protocols'
+import { type DeleteTodo } from '@/domain/usecases'
 
 export class DbDeleteTodo implements DeleteTodo {
   constructor (private readonly deleteTodoRepository: DeleteTodoRepository) {}

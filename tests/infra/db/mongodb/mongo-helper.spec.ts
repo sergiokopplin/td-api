@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { Collection } from 'mongodb'
+import { type Collection } from 'mongodb'
 
 import { MongoHelper as sut } from '@/infra/db'
 

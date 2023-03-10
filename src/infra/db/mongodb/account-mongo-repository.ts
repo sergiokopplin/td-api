@@ -1,11 +1,11 @@
 import {
-  AddAccountRepository,
-  CheckAccountByEmailRepository,
-  LoadAccountByEmailRepository,
-  LoadAccountByTokenRepository,
-  UpdateAccessTokenRepository
+  type AddAccountRepository,
+  type CheckAccountByEmailRepository,
+  type LoadAccountByEmailRepository,
+  type LoadAccountByTokenRepository,
+  type UpdateAccessTokenRepository
 } from '@/data/protocols'
-import { AccountAccessToken, AccountEmail, AccountId, AccountRole } from '@/domain/models'
+import { type AccountAccessToken, type AccountEmail, type AccountId, type AccountRole } from '@/domain/models'
 import { MongoHelper } from '@/infra/db'
 import { ObjectId } from 'mongodb'
 

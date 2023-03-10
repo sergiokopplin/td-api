@@ -1,4 +1,4 @@
-import { SearchQ, Todo, TodoWorkspacesId } from '@/domain/models'
+import { type SearchQ, type Todo, type TodoWorkspacesId } from '@/domain/models'
 
 export interface SearchTodos {
   search: (params: SearchTodos.Params) => Promise<SearchTodos.Result>

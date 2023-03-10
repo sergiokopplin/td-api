@@ -1,7 +1,7 @@
-import { Todo } from '@/domain/models'
-import { DeleteDoneTodos } from '@/domain/usecases'
+import { type Todo } from '@/domain/models'
+import { type DeleteDoneTodos } from '@/domain/usecases'
 import { serverError, noResult } from '@/presentation/helpers'
-import { Controller, HttpResponse } from '@/presentation/protocols'
+import { type Controller, type HttpResponse } from '@/presentation/protocols'
 
 export class DeleteDoneTodosController implements Controller {
   constructor (private readonly deleteDoneTodos: DeleteDoneTodos) {}

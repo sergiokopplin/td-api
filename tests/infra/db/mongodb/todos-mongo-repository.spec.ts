@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { Collection, ObjectId } from 'mongodb'
+import { type Collection, ObjectId } from 'mongodb'
 
 import { MongoHelper, TodosMongoRepository } from '@/infra/db'
 import { mockAddTodoParams } from '@/tests/domain/mocks'

@@ -1,6 +1,6 @@
 import { InvalidParamError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols'
-import { ObjectIdValidation } from '@/validation/protocols'
+import { type Validation } from '@/presentation/protocols'
+import { type ObjectIdValidation } from '@/validation/protocols'
 
 export class ObjectIdValidator implements Validation {
   constructor (

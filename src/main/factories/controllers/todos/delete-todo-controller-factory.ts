@@ -4,7 +4,7 @@ import {
   makeLogControllerDecorator
 } from '@/main/factories'
 import { DeleteTodoController } from '@/presentation/controllers'
-import { Controller } from '@/presentation/protocols'
+import { type Controller } from '@/presentation/protocols'
 
 export const makeDeleteTodoController = (): Controller => {
   const controller = new DeleteTodoController(makeDeleteTodoValidation(), makeDbDeleteTodo())

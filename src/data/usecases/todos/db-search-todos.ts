@@ -1,6 +1,6 @@
-import { SearchTodosRepository } from '@/data/protocols'
-import { SearchQ, TodoWorkspacesId } from '@/domain/models'
-import { SearchTodos } from '@/domain/usecases'
+import { type SearchTodosRepository } from '@/data/protocols'
+import { type SearchQ, type TodoWorkspacesId } from '@/domain/models'
+import { type SearchTodos } from '@/domain/usecases'
 
 export class DbSearchTodos implements SearchTodos {
   constructor (private readonly searchTodosRepository: SearchTodosRepository) {}

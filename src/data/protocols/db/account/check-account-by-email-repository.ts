@@ -1,4 +1,4 @@
-import { AccountEmail } from '@/domain/models'
+import { type AccountEmail } from '@/domain/models'
 
 export interface CheckAccountByEmailRepository {
   checkByEmail: (email: AccountEmail) => Promise<CheckAccountByEmailRepository.Result>

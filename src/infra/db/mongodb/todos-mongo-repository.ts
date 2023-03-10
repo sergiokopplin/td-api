@@ -1,16 +1,16 @@
 import { ObjectId } from 'mongodb'
 
 import {
-  AddTodoRepository,
-  DeleteTodoRepository,
-  LoadTodoRepository,
-  LoadTodosRepository,
-  SearchTodosRepository,
-  UpdateTodoRepository,
-  UpdateTodoStateRepository
+  type AddTodoRepository,
+  type DeleteTodoRepository,
+  type LoadTodoRepository,
+  type LoadTodosRepository,
+  type SearchTodosRepository,
+  type UpdateTodoRepository,
+  type UpdateTodoStateRepository
 } from '@/data/protocols'
 import { MongoHelper, RepositoryHelper } from '@/infra/db'
-import { TodoId, TodoWorkspacesId } from '@/domain/models'
+import { type TodoId, type TodoWorkspacesId } from '@/domain/models'
 
 export class TodosMongoRepository
 implements

@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 
 import { LogControllerDecorator } from '@/main/decorators'
 import { serverError, ok } from '@/presentation/helpers'
-import { Controller, HttpResponse } from '@/presentation/protocols'
+import { type Controller, type HttpResponse } from '@/presentation/protocols'
 import { LogErrorRepositorySpy } from '@/tests/data/mocks'
 
 class ControllerSpy implements Controller {

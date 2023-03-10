@@ -1,5 +1,5 @@
-import { LogErrorRepository } from '@/data/protocols'
-import { Controller, HttpResponse } from '@/presentation/protocols'
+import { type LogErrorRepository } from '@/data/protocols'
+import { type Controller, type HttpResponse } from '@/presentation/protocols'
 
 export class LogControllerDecorator implements Controller {
   constructor (

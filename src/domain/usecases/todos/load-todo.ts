@@ -1,4 +1,4 @@
-import { Todo } from '@/domain/models'
+import { type Todo } from '@/domain/models'
 
 export interface LoadTodo {
   load: (todo: LoadTodo.Params) => Promise<LoadTodo.Result>

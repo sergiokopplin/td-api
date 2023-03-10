@@ -1,15 +1,15 @@
 import { faker } from '@faker-js/faker'
 
 import {
-  AddTodoRepository,
-  DeleteTodoRepository,
-  LoadTodosRepository,
-  UpdateTodoRepository,
-  LoadTodoRepository,
-  UpdateTodoStateRepository,
-  SearchTodosRepository
+  type AddTodoRepository,
+  type DeleteTodoRepository,
+  type LoadTodosRepository,
+  type UpdateTodoRepository,
+  type LoadTodoRepository,
+  type UpdateTodoStateRepository,
+  type SearchTodosRepository
 } from '@/data/protocols'
-import { Todo, TodoCurrentDate, TodoText, TodoId } from '@/domain/models'
+import { type Todo, type TodoCurrentDate, type TodoText, type TodoId } from '@/domain/models'
 
 const mockTodo: Todo = {
   id: faker.datatype.uuid(),

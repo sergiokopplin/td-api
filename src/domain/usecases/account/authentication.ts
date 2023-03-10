@@ -1,4 +1,4 @@
-import { Account, AccountAccessToken } from '@/domain/models'
+import { type Account, type AccountAccessToken } from '@/domain/models'
 
 export interface Authentication {
   auth: (account: Authentication.Params) => Promise<Authentication.Result>

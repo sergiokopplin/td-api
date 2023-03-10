@@ -1,6 +1,6 @@
 import validator from 'validator'
 
-import { DateValidation } from '@/validation/protocols'
+import { type DateValidation } from '@/validation/protocols'
 
 export class DateValidatorAdapter implements DateValidation {
   validate (date: Date): boolean {

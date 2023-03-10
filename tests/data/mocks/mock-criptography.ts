@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { Hasher, HashComparer, Encrypter, Decrypter } from '@/data/protocols'
+import { type Hasher, type HashComparer, type Encrypter, type Decrypter } from '@/data/protocols'
 
 export class HasherSpy implements Hasher {
   result = faker.datatype.uuid()

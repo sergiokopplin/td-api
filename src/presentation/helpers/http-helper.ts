@@ -1,5 +1,5 @@
 import { NotFoundError, UnauthorizedError } from '@/presentation/errors'
-import { HttpResponse } from '@/presentation/protocols'
+import { type HttpResponse } from '@/presentation/protocols'
 
 export const ok = (data: any): HttpResponse => ({
   statusCode: 200,

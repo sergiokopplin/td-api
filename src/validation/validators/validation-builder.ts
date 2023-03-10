@@ -1,9 +1,9 @@
-import { Validation } from '@/presentation/protocols'
+import { type Validation } from '@/presentation/protocols'
 import {
-  EmailValidation,
-  ObjectIdValidation,
-  PasswordStrengthValidation,
-  DateValidation
+  type EmailValidation,
+  type ObjectIdValidation,
+  type PasswordStrengthValidation,
+  type DateValidation
 } from '@/validation/protocols'
 import {
   RequiredFieldValidator,

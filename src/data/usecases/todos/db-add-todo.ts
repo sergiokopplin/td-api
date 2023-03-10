@@ -1,5 +1,5 @@
-import { AddTodoRepository } from '@/data/protocols'
-import { AddTodo } from '@/domain/usecases'
+import { type AddTodoRepository } from '@/data/protocols'
+import { type AddTodo } from '@/domain/usecases'
 
 export class DbAddTodo implements AddTodo {
   constructor (private readonly addTodoRepository: AddTodoRepository) {}

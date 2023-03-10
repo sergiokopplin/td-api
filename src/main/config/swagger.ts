@@ -1,4 +1,4 @@
-import { Express } from 'express'
+import { type Express } from 'express'
 import { serve, setup } from 'swagger-ui-express'
 
 import swaggerDocs from '@/main/docs'

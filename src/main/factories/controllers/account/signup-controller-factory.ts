@@ -5,7 +5,7 @@ import {
   makeLogControllerDecorator
 } from '@/main/factories'
 import { SignUpController } from '@/presentation/controllers'
-import { Controller } from '@/presentation/protocols'
+import { type Controller } from '@/presentation/protocols'
 
 export const makeSignupController = (): Controller => {
   const controller = new SignUpController(

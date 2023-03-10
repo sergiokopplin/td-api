@@ -1,7 +1,7 @@
-import { TodoWorkspacesId } from '@/domain/models'
-import { LoadTodos } from '@/domain/usecases'
+import { type TodoWorkspacesId } from '@/domain/models'
+import { type LoadTodos } from '@/domain/usecases'
 import { ok, serverError } from '@/presentation/helpers'
-import { Controller, HttpResponse } from '@/presentation/protocols'
+import { type Controller, type HttpResponse } from '@/presentation/protocols'
 
 export class LoadTodosController implements Controller {
   constructor (private readonly loadTodos: LoadTodos) {}

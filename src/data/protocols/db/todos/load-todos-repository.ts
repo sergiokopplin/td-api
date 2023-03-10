@@ -1,4 +1,4 @@
-import { Todo, TodoWorkspacesId } from '@/domain/models'
+import { type Todo, type TodoWorkspacesId } from '@/domain/models'
 
 export interface LoadTodosRepository {
   loadAll: (workspacesId: TodoWorkspacesId) => Promise<LoadTodosRepository.Result[]>

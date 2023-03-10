@@ -1,6 +1,6 @@
 import { PasswordStrengthError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols'
-import { PasswordStrengthValidation } from '@/validation/protocols'
+import { type Validation } from '@/presentation/protocols'
+import { type PasswordStrengthValidation } from '@/validation/protocols'
 
 export class PasswordStrengthValidator implements Validation {
   constructor (

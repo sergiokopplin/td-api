@@ -1,4 +1,4 @@
-import { PasswordStrengthValidation } from '@/validation/protocols'
+import { type PasswordStrengthValidation } from '@/validation/protocols'
 
 export class PasswordStrengthValidationSpy implements PasswordStrengthValidation {
   password: PasswordStrengthValidation.password

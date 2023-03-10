@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { type Router } from 'express'
 
 import { expressRouteAdapt } from '@/main/adapters'
 import {

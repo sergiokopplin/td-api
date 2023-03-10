@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 import { sign } from 'jsonwebtoken'
-import { Collection } from 'mongodb'
+import { type Collection } from 'mongodb'
 import request from 'supertest'
 
 import { MongoHelper } from '@/infra/db'

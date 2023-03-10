@@ -1,4 +1,4 @@
-import { EmailValidation } from '@/validation/protocols'
+import { type EmailValidation } from '@/validation/protocols'
 
 export class EmailValidationSpy implements EmailValidation {
   email: EmailValidation.email

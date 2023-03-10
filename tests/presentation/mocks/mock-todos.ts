@@ -1,15 +1,15 @@
 import { faker } from '@faker-js/faker'
 
-import { Todo } from '@/domain/models'
+import { type Todo } from '@/domain/models'
 import {
-  AddTodo,
-  DeleteTodo,
-  DeleteDoneTodos,
-  UpdateTodo,
-  LoadTodos,
-  LoadTodo,
-  UpdateTodoState,
-  SearchTodos
+  type AddTodo,
+  type DeleteTodo,
+  type DeleteDoneTodos,
+  type UpdateTodo,
+  type LoadTodos,
+  type LoadTodo,
+  type UpdateTodoState,
+  type SearchTodos
 } from '@/domain/usecases'
 
 const mockTodo = (): Todo => ({

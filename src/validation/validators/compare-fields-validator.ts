@@ -1,5 +1,5 @@
 import { InvalidParamError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols'
+import { type Validation } from '@/presentation/protocols'
 
 export class CompareFieldsValidator implements Validation {
   constructor (private readonly field: string, private readonly fieldToCompare: string) {}

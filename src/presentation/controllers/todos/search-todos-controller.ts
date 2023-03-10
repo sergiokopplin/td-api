@@ -1,7 +1,7 @@
-import { SearchQ, TodoWorkspacesId } from '@/domain/models'
-import { SearchTodos } from '@/domain/usecases'
+import { type SearchQ, type TodoWorkspacesId } from '@/domain/models'
+import { type SearchTodos } from '@/domain/usecases'
 import { ok, serverError } from '@/presentation/helpers'
-import { Controller, HttpResponse } from '@/presentation/protocols'
+import { type Controller, type HttpResponse } from '@/presentation/protocols'
 
 export class SearchTodosController implements Controller {
   constructor (private readonly searchTodos: SearchTodos) {}

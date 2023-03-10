@@ -1,13 +1,13 @@
 import { faker } from '@faker-js/faker'
 
 import {
-  AddAccountRepository,
-  CheckAccountByEmailRepository,
-  LoadAccountByEmailRepository,
-  LoadAccountByTokenRepository,
-  UpdateAccessTokenRepository
+  type AddAccountRepository,
+  type CheckAccountByEmailRepository,
+  type LoadAccountByEmailRepository,
+  type LoadAccountByTokenRepository,
+  type UpdateAccessTokenRepository
 } from '@/data/protocols'
-import { Account, AccountEmail, AccountId, AccountRole, AccountAccessToken } from '@/domain/models'
+import { type Account, type AccountEmail, type AccountId, type AccountRole, type AccountAccessToken } from '@/domain/models'
 
 export class CheckAccountByEmailRepositorySpy implements CheckAccountByEmailRepository {
   email: AccountEmail

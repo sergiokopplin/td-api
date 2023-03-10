@@ -1,7 +1,7 @@
-import { Account } from '@/domain/models'
-import { Authentication } from '@/domain/usecases'
+import { type Account } from '@/domain/models'
+import { type Authentication } from '@/domain/usecases'
 import { badRequestError, ok, serverError, unauthorized } from '@/presentation/helpers'
-import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
+import { type Controller, type HttpResponse, type Validation } from '@/presentation/protocols'
 
 export class LoginController implements Controller {
   constructor (

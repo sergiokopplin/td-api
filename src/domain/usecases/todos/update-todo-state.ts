@@ -1,4 +1,4 @@
-import { Todo, TodoDone, TodoId, TodoWorkspacesId } from '@/domain/models'
+import { type Todo, type TodoDone, type TodoId, type TodoWorkspacesId } from '@/domain/models'
 
 export interface UpdateTodoState {
   updateState: (params: UpdateTodoState.Params) => Promise<UpdateTodoState.Result>

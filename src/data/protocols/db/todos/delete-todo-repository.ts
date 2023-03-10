@@ -1,4 +1,4 @@
-import { TodoId, TodoWorkspacesId } from '@/domain/models'
+import { type TodoId, type TodoWorkspacesId } from '@/domain/models'
 
 export interface DeleteTodoRepository {
   delete: (id: TodoId, workspacesId: TodoWorkspacesId) => Promise<void>

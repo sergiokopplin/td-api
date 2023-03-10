@@ -1,4 +1,4 @@
-import { Express } from 'express'
+import { type Express } from 'express'
 
 import { bodyParser, cors, contentType, noCache, logger } from '@/main/middlewares'
 

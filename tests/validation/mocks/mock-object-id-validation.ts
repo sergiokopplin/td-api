@@ -1,4 +1,4 @@
-import { ObjectIdValidation } from '@/validation/protocols'
+import { type ObjectIdValidation } from '@/validation/protocols'
 
 export class ObjectIdValidationSpy implements ObjectIdValidation {
   id: ObjectIdValidation.id

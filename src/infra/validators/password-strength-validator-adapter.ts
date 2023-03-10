@@ -1,6 +1,6 @@
 import validator from 'validator'
 
-import { PasswordStrengthValidation } from '@/validation/protocols'
+import { type PasswordStrengthValidation } from '@/validation/protocols'
 
 export class PasswordStrengthValidatorAdapter implements PasswordStrengthValidation {
   validate (password: string): boolean {

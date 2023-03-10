@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { Collection } from 'mongodb'
+import { type Collection } from 'mongodb'
 
 import { LogMongoRepository, MongoHelper } from '@/infra/db'
 

@@ -1,4 +1,4 @@
-import { DateValidation } from '@/validation/protocols'
+import { type DateValidation } from '@/validation/protocols'
 
 export class DateValidationSpy implements DateValidation {
   date: DateValidation.date

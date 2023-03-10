@@ -1,5 +1,5 @@
-import { LoadTodoRepository } from '@/data/protocols'
-import { LoadTodo } from '@/domain/usecases'
+import { type LoadTodoRepository } from '@/data/protocols'
+import { type LoadTodo } from '@/domain/usecases'
 
 export class DbLoadTodo implements LoadTodo {
   constructor (private readonly loadTodoRepository: LoadTodoRepository) {}

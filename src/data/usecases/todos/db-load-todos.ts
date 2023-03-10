@@ -1,6 +1,6 @@
-import { LoadTodosRepository } from '@/data/protocols'
-import { Todo, TodoWorkspacesId } from '@/domain/models'
-import { LoadTodos } from '@/domain/usecases'
+import { type LoadTodosRepository } from '@/data/protocols'
+import { type Todo, type TodoWorkspacesId } from '@/domain/models'
+import { type LoadTodos } from '@/domain/usecases'
 
 export class DbLoadTodos implements LoadTodos {
   constructor (private readonly loadTodosRepository: LoadTodosRepository) {}

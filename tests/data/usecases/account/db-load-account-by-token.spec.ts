@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker'
 import { DbLoadAccountByToken } from '@/data/usecases'
 import { DecrypterSpy, LoadAccountByTokenRepositorySpy } from '@/tests/data/mocks'
 import { throwError } from '@/tests/presentation/mocks'
-import { AccountRole, AccountAccessToken } from '@/domain/models'
+import { type AccountRole, type AccountAccessToken } from '@/domain/models'
 
 interface SutTypes {
   sut: DbLoadAccountByToken

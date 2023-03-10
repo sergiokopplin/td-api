@@ -1,6 +1,6 @@
 import { InvalidParamError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols'
-import { DateValidation } from '@/validation/protocols'
+import { type Validation } from '@/presentation/protocols'
+import { type DateValidation } from '@/validation/protocols'
 
 export class DateValidator implements Validation {
   constructor (private readonly field: string, private readonly dateValidation: DateValidation) {}

@@ -1,4 +1,4 @@
-import { Todo } from '@/domain/models'
+import { type Todo } from '@/domain/models'
 
 export interface AddTodoRepository {
   add: (todo: AddTodoRepository.Params) => Promise<AddTodoRepository.Result>
