@@ -10,7 +10,7 @@
 
 ## Prerequisites
 
-- node 18.x
+- node 19.x
 
 ## Install
 
